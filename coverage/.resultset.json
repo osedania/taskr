@@ -1,49 +1,136 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/maxmollerstrom/Projects/taskr/app/controllers/home_controller.rb": [
+      "/home/benji/CraftAcademy/taskr/app/controllers/home_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/maxmollerstrom/Projects/taskr/app/controllers/application_controller.rb": [
+      "/home/benji/CraftAcademy/taskr/app/controllers/application_controller.rb": [
         1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/benji/CraftAcademy/taskr/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/maxmollerstrom/Projects/taskr/app/helpers/application_helper.rb": [
+      "/home/benji/CraftAcademy/taskr/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/models/requester.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/jobs/application_job.rb": [
+        0,
+        0
+      ]
+    },
+    "timestamp": 1496927355
+  },
+  "RSpec": {
+    "coverage": {
+      "/home/benji/CraftAcademy/taskr/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/maxmollerstrom/Projects/taskr/app/channels/application_cable/channel.rb": [
+      "/home/benji/CraftAcademy/taskr/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/models/requester.rb": [
+        0,
+        0,
+        0,
         0,
         0,
         0,
         0
       ],
-      "/Users/maxmollerstrom/Projects/taskr/app/channels/application_cable/connection.rb": [
+      "/home/benji/CraftAcademy/taskr/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/maxmollerstrom/Projects/taskr/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/Users/maxmollerstrom/Projects/taskr/app/mailers/application_mailer.rb": [
+      "/home/benji/CraftAcademy/taskr/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/maxmollerstrom/Projects/taskr/app/models/application_record.rb": [
+      "/home/benji/CraftAcademy/taskr/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/benji/CraftAcademy/taskr/app/controllers/home_controller.rb": [
+        0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1496915624
+    "timestamp": 1496927372
   }
 }
