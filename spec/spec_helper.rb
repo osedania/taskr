@@ -1,4 +1,6 @@
 require 'coveralls'
+require File.expand_path("../../config/environment", __FILE__)
+
 Coveralls.wear_merged!('rails')
 
 RSpec.configure do |config|
