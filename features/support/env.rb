@@ -1,11 +1,11 @@
 require 'cucumber/rails'
 require 'database_cleaner'
+require 'coveralls'
 
-#
+Coveralls.wear_merged!('rails')
+
 ActionController::Base.allow_rescue = false
 
-# Remove/comment out the lines below if your app doesn't have a database.
-# For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
 begin
   DatabaseCleaner.strategy = :transaction
 rescue NameError
