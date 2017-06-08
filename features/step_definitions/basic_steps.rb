@@ -7,7 +7,7 @@ Given(/^I fill in field "([^"]*)" with "([^"]*)"$/) do |field, value|
 end
 
 Given(/^I click on "([^"]*)"$/) do |text|
-  click_link_or_button(text)
+  click_button text
 end
 
 Then(/^show page$/) do
