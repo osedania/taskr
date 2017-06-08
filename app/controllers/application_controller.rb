@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  devise_group :user, contains: [:requester, :contractor]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

@@ -6,7 +6,6 @@ Feature: As a contractor,
 Scenario:
   Given I visit the landing page
   And I click link "Register as a Contractor"
-  Then show page
   Then I should see "Contractor Registration Form"
   When I fill in field "First Name" with "Bob"
   And I fill in field "Last Name" with "Jackson"
@@ -19,8 +18,7 @@ Scenario:
   And I fill in field "State" with "Florida"
   And I fill in field "Zip Code" with "33015"
   And I fill in field "Country" with "USA"
-  And I click on "Sign Up"
-  Then show page
+  And I click on "Submit"
   Then I should see "Welcome! You have signed up successfully"
 
 
@@ -40,5 +38,6 @@ Scenario:
   And I fill in field "State" with "Florida"
   And I fill in field "Zip Code" with "33015"
   And I fill in field "Country" with "USA"
-  And I click on "Sign Up"
-  Then I should see "You have to provide a valid email address"
+  And I click on "Submit"
+  Then show page
+  Then I should see "Email can't be blank"
