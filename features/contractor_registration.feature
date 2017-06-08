@@ -16,7 +16,7 @@ Scenario:
   And I fill in field "State" with "Florida"
   And I fill in field "Zip Code" with "33015"
   And I fill in field "Company" with "Bob's Plumbing Inc"
-  And I click "Submit"
+  And I click on "Submit"
   Then I should see "Success! Next step is to confirm your account by clicking the link sent to you"
 
 #Happy path without Company
@@ -33,7 +33,7 @@ Scenario:
     And I fill in field "State" with "Florida"
     And I fill in field "Zip Code" with "33015"
     And I fill in field "Company" with ""
-    And I click "Submit"
+    And I click on "Submit"
     Then I should see "Success! Next step is to confirm your account by clicking the link sent to you"
 
 
@@ -51,7 +51,7 @@ Scenario:
   And I fill in field "State" with "Florida"
   And I fill in field "Zip Code" with "33015"
   And I fill in field "Company" with "Bob's Plumbing Inc"
-  And I click "Submit"
+  And I click on "Submit"
   Then I should see "You have to fill in required fields to "
 
 #Sad Path
@@ -68,5 +68,5 @@ Scenario:
   And I fill in field "State" with "Florida"
   And I fill in field "Zip Code" with "33015"
   And I fill in field "Company" with "Bob's Plumbing Inc"
-  And I click "Submit"
+  And I click on "Submit"
   Then I should see "You have to provide a valid email address"
