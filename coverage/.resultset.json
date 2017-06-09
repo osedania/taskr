@@ -1,13 +1,18 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/home_controller.rb": [
+      "/Users/maxmollerstrom/Projects/taskr/app/models/task_category.rb": [
+        1,
+        null,
+        null
+      ],
+      "/Users/maxmollerstrom/Projects/taskr/app/controllers/home_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/application_controller.rb": [
+      "/Users/maxmollerstrom/Projects/taskr/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -23,180 +28,194 @@
         null,
         null
       ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/contractors/registrations_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/application_record.rb": [
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/contractor.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/requester.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    "timestamp": 1497003544
-  },
-  "RSpec": {
-    "coverage": {
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/helpers/application_helper.rb": [
+      "/Users/maxmollerstrom/Projects/taskr/app/helpers/application_helper.rb": [
         1,
         null
       ],
       "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/application_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/contractors/registrations_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/home_controller.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/application_record.rb": [
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/contractor.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/requester.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
+        "/Users/maxmollerstrom/Projects/taskr/app/controllers/tasks_controller.rb": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/channels/application_cable/channel.rb": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/channels/application_cable/connection.rb": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/controllers/contractors/registrations_controller.rb": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/jobs/application_job.rb": [
+          0,
+          0
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/jobs/application_job.rb": [
+          0,
+          0
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/mailers/application_mailer.rb": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/models/application_record.rb": [
+          0,
+          0,
+          0
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/models/contractor.rb": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/maxmollerstrom/Projects/taskr/app/models/requester.rb": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timestamp": 1497008906
     },
-    "timestamp": 1497003259
+    "RSpec": {
+      "coverage": {
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/helpers/application_helper.rb": [
+          1,
+          null
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/channel.rb": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/connection.rb": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/application_controller.rb": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/contractors/registrations_controller.rb": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/home_controller.rb": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/jobs/application_job.rb": [
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/mailers/application_mailer.rb": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/application_record.rb": [
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/contractor.rb": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/models/requester.rb": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timestamp": 1497003259
+    }
   }
-}
