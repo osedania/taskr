@@ -39,5 +39,4 @@ Scenario:
   And I fill in field "Zip Code" with "33015"
   And I fill in field "Country" with "USA"
   And I click on "Submit"
-  Then show page
   Then I should see "Email can't be blank"
