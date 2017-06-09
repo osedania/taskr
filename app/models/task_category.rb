@@ -1,0 +1,3 @@
+class TaskCategory < ApplicationRecord
+  
+end
