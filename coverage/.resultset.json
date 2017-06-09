@@ -27,23 +27,6 @@
         1,
         null
       ],
-      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/contractors/registrations_controller.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        4,
-        2,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
       "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/channel.rb": [
         0,
         0,
@@ -51,6 +34,23 @@
         0
       ],
       "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/DanDevOps/Desktop/Web design/CraftAcademy/Projects/taskr/app/controllers/contractors/registrations_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -97,8 +97,7 @@
         0
       ]
     },
-
-    "timestamp": 1496994396
+    "timestamp": 1497003544
   },
   "RSpec": {
     "coverage": {
@@ -198,6 +197,6 @@
         0
       ]
     },
-    "timestamp": 1496966944
+    "timestamp": 1497003259
   }
 }
