@@ -16,10 +16,9 @@ Feature: Post New task
       | email             | first_name | last_name | password | password_confirmation |
       | requester@ab.com  | Re         | Quester   | 12345678 | 12345678              |
 
-  Scenario:
+  Scenario: Post task when user is not yet logged in
     Given I visit the landing page
     And I click on "Post new task"
-    Then I should see "New Task"
     And I fill in field "Task Name" with "Broken Sink"
     And I fill in field "Description" with "Clogged Sink"
     And I select "Plumbing" from "Task Category"
@@ -39,7 +38,6 @@ Feature: Post New task
       And I fill in field "Password" with "12345678"
       And I click on "Log In"
       And I click on "Post new task"
-      Then I should see "New Task"
       And I fill in field "Task Name" with "Broken Sink"
       And I fill in field "Description" with "Clogged Sink"
       And I select "Plumbing" from "Task Category"

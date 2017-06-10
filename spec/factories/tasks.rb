@@ -5,5 +5,6 @@ FactoryGirl.define do
     location "MyString"
     minimum_budget 1
     maximum_budget 1
+    task_category
   end
 end

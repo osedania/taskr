@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root controller: :home, action: :index
   resources :home, only: [:index]
   resources :tasks, only: [:new, :create, :show]
-
+  
 end
