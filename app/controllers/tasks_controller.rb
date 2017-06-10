@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  
+
   def new
     @task = Task.new
     @task_categories = TaskCategory.all
@@ -11,9 +11,10 @@ class TasksController < ApplicationController
       redirect_to new_requester_session_path
     else
       @task = Task.new(task_params)
+      @task.requester_id = current_user.id
       @task.task_category_id = params[:task][:task_category_id]
       if @task.save
-        redirect_to task_path(current_user.id)
+        redirect_to requesters_task_path(current_user.id, @task)
         flash[:notice] = 'Task was successfully posted!'
       else
         render 'new'
@@ -35,7 +36,8 @@ class TasksController < ApplicationController
                  :minimum_budget,
                  :maximum_budget,
                  :country,
-                 :task_category_id)
+                 :task_category_id,
+                 :requester_id)
   end
 
 end

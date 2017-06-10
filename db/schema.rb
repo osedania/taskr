@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609143123) do
+ActiveRecord::Schema.define(version: 20170610160329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,11 @@ ActiveRecord::Schema.define(version: 20170609143123) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "task_category_id"
+    t.bigint "requester_id"
+    t.index ["requester_id"], name: "index_tasks_on_requester_id"
     t.index ["task_category_id"], name: "index_tasks_on_task_category_id"
   end
 
+  add_foreign_key "tasks", "requesters"
   add_foreign_key "tasks", "task_categories"
 end

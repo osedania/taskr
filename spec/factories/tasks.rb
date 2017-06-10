@@ -6,5 +6,6 @@ FactoryGirl.define do
     minimum_budget 1
     maximum_budget 1
     task_category
+    requester
   end
 end

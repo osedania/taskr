@@ -1,5 +1,6 @@
 %div
   - if user_signed_in?
+    = link_to "View My Tasks", requesters_tasks_path
     = link_to 'Log Out'
   - else
     = link_to 'Sign In', new_requester_session_path
