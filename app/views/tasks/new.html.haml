@@ -6,11 +6,15 @@
   .field
     = f.label :name, "Task Name"
     %br/
-    = f.text_field :name, autofocus: true
+    = f.text_field :name, autofocus: true, required: true
   .field
     = f.label :description, "Description"
     %br/
-    = f.text_field :description
+    = f.text_field :description, required: true
+  .field
+    = f.label :location, "Location"
+    %br/
+    = f.text_field :location, required: true
   .field
     = f.label :task_category_id, "Task Category"
     %br/
@@ -23,10 +27,6 @@
     = f.label :maximum_budget, "Maximum Budget($):"
     %br/
     = f.number_field :maximum_budget
-  .field
-    = f.label :location, "Location"
-    %br/
-    = f.text_field :location
   .actions
     = f.submit "Submit"
     %p

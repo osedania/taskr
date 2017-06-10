@@ -5,6 +5,10 @@ RSpec.describe TaskCategory, type: :model do
     it { is_expected.to have_db_column :name }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many :tasks }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(FactoryGirl.create(:task_category)).to be_valid
