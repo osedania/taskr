@@ -1,0 +1,33 @@
+%h2 New Task
+= form_for @task do |f|
+  - if @task.errors.any?
+    - @task.errors.full_messages.each do |message|
+      = message
+  .field
+    = f.label :name, "Task Name"
+    %br/
+    = f.text_field :name, autofocus: true
+  .field
+    = f.label :description, "Description"
+    %br/
+    = f.text_field :description
+  .field
+    = f.label :task_category_id, "Task Category"
+    %br/
+    = f.collection_select(:task_category_id, @task_categories, :id, :name)
+  .field
+    = f.label :minimum_budget, "Minimum Budget($):"
+    %br/
+    = f.number_field :minimum_budget
+  .field
+    = f.label :maximum_budget, "Maximum Budget($):"
+    %br/
+    = f.number_field :maximum_budget
+  .field
+    = f.label :location, "Location"
+    %br/
+    = f.text_field :location
+  .actions
+    = f.submit "Submit"
+    %p
+      = flash[:notice]

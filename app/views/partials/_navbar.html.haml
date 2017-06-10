@@ -1,3 +1,6 @@
 %div
-  = link_to 'Sign In', new_requester_session_path
-  = link_to 'Sign Up', new_requester_registration_path
+  - if user_signed_in?
+    = link_to 'Log Out'
+  - else
+    = link_to 'Sign In', new_requester_session_path
+    = link_to 'Sign Up', new_requester_registration_path
