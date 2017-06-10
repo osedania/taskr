@@ -25,6 +25,10 @@ Feature: View list of task requests
 
   Scenario: View list of task requests
     Given I visit the landing page
+    And I click on "Requester Sign In"
+    And I fill in field "Email" with "requester@ab.com"
+    And I fill in field "Password" with "12345678"
+    And I click on "Log In"
     And I click on "View My Tasks"
     Then I should see "Bad computer"
     And I should see "Bad mowing machine"

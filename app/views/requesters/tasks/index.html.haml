@@ -1,0 +1,12 @@
+%div
+  %ul
+    - @task.each do |task|
+      %li
+        = link_to task.name, requesters_task_path(task)
+        %ul
+          %li Task Description: #{task.description}
+          %li Location: #{task.location}
+          %li Minimum Budget: #{task.minimum_budget}
+          %li Maximum Budget: #{task.maximum_budget}
+
+          
