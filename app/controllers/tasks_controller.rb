@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, except: [:create, :new, :index, :show]
-
+  
   def new
     @task = Task.new
     @task_categories = TaskCategory.all
@@ -14,7 +13,7 @@ class TasksController < ApplicationController
       @task = Task.new(task_params)
       @task.task_category_id = params[:task][:task_category_id]
       if @task.save
-        redirect_to task_path(current_user)
+        redirect_to task_path(current_user.id)
         flash[:notice] = 'Task was successfully posted!'
       else
         render 'new'

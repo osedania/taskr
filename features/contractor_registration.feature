@@ -6,8 +6,7 @@ Feature: Contractor Registration
 
   Scenario:
     Given I visit the landing page
-    And I click link "Register as a Contractor"
-    Then I should see "Contractor Registration Form"
+    And I click link "Sign Up as a Contractor"
     When I fill in field "First Name" with "Bob"
     And I fill in field "Last Name" with "Jackson"
     And I fill in field "Email" with "bob@plumbing.com"
@@ -26,8 +25,7 @@ Feature: Contractor Registration
   #Sad Path without email
   Scenario:
     Given I visit the landing page
-    And I click link "Register as a Contractor"
-    Then I should see "Contractor Registration Form"
+    And I click link "Sign Up as a Contractor"
     When I fill in field "First Name" with "Bob"
     And I fill in field "Last Name" with "Jackson"
     And I fill in field "Email" with ""

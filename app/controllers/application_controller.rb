@@ -12,8 +12,10 @@ class ApplicationController < ActionController::Base
         flash[:notice] = "Task was successfully posted!"
         task_path(current_user.id, @task)
       else
-        super
+        new_task_path
       end
+    else
+      root_path
     end
   end
 
