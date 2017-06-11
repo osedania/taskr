@@ -20,9 +20,8 @@ module Taskr
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-
     config.generators.system_tests = nil
-
+    
     config.generators do |generate|
     generate.helper false
     generate.assets false

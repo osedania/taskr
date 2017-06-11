@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608142813) do
+ActiveRecord::Schema.define(version: 20170610160329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,4 +59,26 @@ ActiveRecord::Schema.define(version: 20170608142813) do
     t.index ["reset_password_token"], name: "index_requesters_on_reset_password_token", unique: true
   end
 
+  create_table "task_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "location"
+    t.integer "minimum_budget"
+    t.integer "maximum_budget"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "task_category_id"
+    t.bigint "requester_id"
+    t.index ["requester_id"], name: "index_tasks_on_requester_id"
+    t.index ["task_category_id"], name: "index_tasks_on_task_category_id"
+  end
+
+  add_foreign_key "tasks", "requesters"
+  add_foreign_key "tasks", "task_categories"
 end

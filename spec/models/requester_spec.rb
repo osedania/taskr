@@ -16,6 +16,10 @@ RSpec.describe Requester, type: :model do
     it { is_expected.to validate_presence_of :encrypted_password }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many :tasks }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(FactoryGirl.create(:requester)).to be_valid
