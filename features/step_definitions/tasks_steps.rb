@@ -1,5 +1,5 @@
 Given(/^there are two reqesters having several tasks each belonging to some categories$/) do
-  steps %{
+  steps %q{
     Given the following requester accounts exist
       | email             | first_name | last_name | password | password_confirmation |
       | requester1@r.com  | Re         | Quester   | 12345678 | 12345678              |
