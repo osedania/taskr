@@ -27,9 +27,6 @@ Feature: Edit & Delete Task
     And I should see "Maximum budget: 700"
     And I should see "Category: Computer"
 
-  Scenario: Can not edit a task created by another user
-
-
   Scenario: Delete a task
     Given I am logged in as "requester1@r.com"
     And I visit the landing page
@@ -38,4 +35,3 @@ Feature: Edit & Delete Task
     Then I should not see "Bad computer"
     Then I should see "Task Deleted!"
     And the task should not be present in the database
-

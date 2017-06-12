@@ -27,28 +27,33 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find_by(requester_id: current_user.id)
     @task = Task.find(params[:id])
     @task_categories = TaskCategory.all
   end
 
   def update
-    @task = Task.find_by(requester_id: current_user.id)
     @task = Task.find(params[:id])
-    if @task.update_attributes(task_params)
-      redirect_to requesters_task_path(@task)
-      flash[:notice] = "Task Updated!"
+    if @task.requester === current_user
+      if @task.update_attributes(task_params)
+        redirect_to requesters_task_path(@task)
+        flash[:notice] = "Task Updated!"
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      flash[:notice] = "Sorry, you can't edit this task"
     end
   end
 
   def destroy
-    @task = Task.find_by(requester_id: current_user.id)
     @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to requesters_tasks_path
-    flash[:notice] = "Task Deleted!"
+    if @task.requester === current_user
+      @task.destroy
+      redirect_to requesters_tasks_path
+      flash[:notice] = "Task Deleted!"
+    else
+      flash[:notice] = "Sorry, you can't delete this task"
+    end
   end
 
   def show
