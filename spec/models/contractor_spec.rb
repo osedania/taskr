@@ -13,6 +13,7 @@ RSpec.describe Contractor, type: :model do
     it { is_expected.to have_db_column :state }
     it { is_expected.to have_db_column :zip_code }
     it { is_expected.to have_db_column :country }
+    it { is_expected.to have_db_column :experience }    
   end
 
   describe 'Validations' do

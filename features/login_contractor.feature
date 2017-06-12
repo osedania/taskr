@@ -10,7 +10,7 @@ I need to be able to login to my validated account.
 
   Scenario:
     Given I am on the landing page
-    And I click on "Contractor Sign In"
+    And I click on "Contractor Log In"
     Then I should see "Contractor Sign In Form"
     And I fill in field "Email" with "contractor@ab.com"
     And I fill in field "Password" with "12345678"

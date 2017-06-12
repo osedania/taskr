@@ -10,5 +10,6 @@ FactoryGirl.define do
     state "Florida"
     zip_code "321345"
     country "USA"
+    experience "my experience"
   end
 end
