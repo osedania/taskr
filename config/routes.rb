@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   namespace :requesters do
     resources :tasks, only: [:index, :show, :new, :create]
   end
+  
   root controller: :home, action: :index
   resources :home, only: [:index]
 
-  resources :tasks, only: [:new, :create, :show]
+  resources :tasks, only: [:new, :create, :index, :show]
 
 end
