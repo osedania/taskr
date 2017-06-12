@@ -7,7 +7,7 @@ Feature: Edit & Delete Task
   Given there are two reqesters having several tasks each belonging to some categories
 
 
-  Scenario: Edit the task
+  Scenario: Edit a task
     Given I visit the landing page
     And I am logged in as "requester1@r.com" and password "12345678"
     And I click on "View My Tasks"
@@ -22,3 +22,14 @@ Feature: Edit & Delete Task
     And I fill in field "Location" with "Gothenbourg"
     And I click on "Submit"
     Then I should see "Task Updated!"
+
+
+  Scenario: Delete a task
+    Given I visit the landing page
+    And I am logged in as "requester1@r.com" and password "12345678"
+    And I click on "View My Tasks"
+    And I click link "Bad computer"
+    Then I should see "Delete task"
+    And I click on "Delete task"
+    Then I should not see "Bad computer"
+    Then I should see "Task Deleted!"

@@ -9,4 +9,5 @@
 
     %li
       = link_to "Edit task", edit_task_path(@task)
-    %li Delete Task
+    %li
+      = link_to "Delete task", task_path(@task), method: :delete

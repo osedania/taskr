@@ -42,6 +42,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find_by(requester_id: current_user.id)
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to requesters_tasks_path
+    flash[:notice] = "Task Deleted!"
+  end
+
 
   private
 
