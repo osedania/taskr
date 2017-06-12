@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       if @task.save
         session[:task] = nil
         flash[:notice] = "Task was successfully posted!"
-        requesters_task_path(current_user.id, @task)
+        requesters_task_path(@task)
       else
         new_task_path
       end

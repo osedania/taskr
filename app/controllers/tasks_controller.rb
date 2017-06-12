@@ -14,7 +14,7 @@ class TasksController < ApplicationController
       @task.requester_id = current_user.id
       @task.task_category_id = params[:task][:task_category_id]
       if @task.save
-        redirect_to requesters_task_path(current_user.id, @task)
+        redirect_to requesters_task_path(@task)
         flash[:notice] = 'Task was successfully posted!'
       else
         render 'new'
