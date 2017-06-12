@@ -20,11 +20,11 @@
     %br/
     = f.collection_select(:task_category_id, @task_categories, :id, :name)
   .field
-    = f.label :minimum_budget, "Minimum Budget($):"
+    = f.label :minimum_budget, "Minimum Budget:"
     %br/
     = f.number_field :minimum_budget
   .field
-    = f.label :maximum_budget, "Maximum Budget($):"
+    = f.label :maximum_budget, "Maximum Budget:"
     %br/
     = f.number_field :maximum_budget
   .actions
