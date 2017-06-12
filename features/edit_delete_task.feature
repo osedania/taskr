@@ -9,7 +9,7 @@ Feature: Edit & Delete Task
 
   Scenario: Edit a task
     Given I visit the landing page
-    And I am logged in as "requester1@r.com" and password "12345678"
+    And I am logged in as "requester1@r.com"
     And I click on "View My Tasks"
     And I click link "Bad computer"
     Then I should see "Edit task"
@@ -22,11 +22,15 @@ Feature: Edit & Delete Task
     And I fill in field "Location" with "Gothenbourg"
     And I click on "Submit"
     Then I should see "Task Updated!"
+    And I should see "Broken computer"
+    And I should see "faulty powerpack"
+    And I should see "500"
+    And I should see "700"
 
 
   Scenario: Delete a task
     Given I visit the landing page
-    And I am logged in as "requester1@r.com" and password "12345678"
+    And I am logged in as "requester1@r.com"
     And I click on "View My Tasks"
     And I click link "Bad computer"
     Then I should see "Delete task"
