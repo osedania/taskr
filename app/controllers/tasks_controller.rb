@@ -25,6 +25,31 @@ class TasksController < ApplicationController
   def show
   end
 
+  def edit
+    @task = Task.find_by(requester_id: current_user.id)
+    @task = Task.find(params[:id])
+    @task_categories = TaskCategory.all
+  end
+
+  def update
+    @task = Task.find_by(requester_id: current_user.id)
+    @task = Task.find(params[:id])
+    if @task.update_attributes(task_params)
+      redirect_to requesters_task_path(@task)
+      flash[:notice] = "Task Updated!"
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @task = Task.find_by(requester_id: current_user.id)
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to requesters_tasks_path
+    flash[:notice] = "Task Deleted!"
+  end
+
 
   private
 

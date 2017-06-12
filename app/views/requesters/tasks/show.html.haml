@@ -6,3 +6,8 @@
     %li Minimun budget: #{@task.minimum_budget}
     %li Maximum budget: #{@task.maximum_budget}
     %li Category: #{@task_cat.name}
+
+    %li
+      = link_to "Edit task", edit_task_path(@task)
+    %li
+      = link_to "Delete task", task_path(@task), method: :delete
