@@ -1,0 +1,7 @@
+%h1 Current Available Tasks List
+- @tasks.each do |task|
+  %ul
+    %li= link_to "#{task.name}", task_path(task.id)
+    %li Location: #{task.location}
+    %li Min. Budget: #{task.minimum_budget}
+    %li Max. Budget: #{task.maximum_budget}
