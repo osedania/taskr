@@ -4,15 +4,13 @@ Feature: Edit & Delete Task
   I should have the option to edit an open task request
 
   Background:
-  Given there are two reqesters having several tasks each belonging to some categories
+    Given there are two reqesters having several tasks each belonging to some categories
 
-
-  Scenario: Edit a task
-    Given I visit the landing page
-    And I am logged in as "requester1@r.com"
+  Scenario: Owner of a task can edit it.
+    Given I am logged in as "requester1@r.com"
+    And I visit the landing page
     And I click on "View My Tasks"
     And I click link "Bad computer"
-    Then I should see "Edit task"
     And I click on "Edit task"
     And I fill in field "Task Name" with "Broken computer"
     And I fill in field "Description" with "faulty powerpack"
@@ -22,18 +20,22 @@ Feature: Edit & Delete Task
     And I fill in field "Location" with "Gothenbourg"
     And I click on "Submit"
     Then I should see "Task Updated!"
-    And I should see "Broken computer"
-    And I should see "faulty powerpack"
-    And I should see "500"
-    And I should see "700"
+    And I should see "Task Name: Broken computer"
+    And I should see "Description: faulty powerpack"
+    And I should see "Location: Gothenbourg"
+    And I should see "Minimun budget: 500"
+    And I should see "Maximum budget: 700"
+    And I should see "Category: Computer"
+
+  Scenario: Can not edit a task created by another user
 
 
   Scenario: Delete a task
-    Given I visit the landing page
-    And I am logged in as "requester1@r.com"
+    Given I am logged in as "requester1@r.com"
+    And I visit the landing page
     And I click on "View My Tasks"
-    And I click link "Bad computer"
-    Then I should see "Delete task"
-    And I click on "Delete task"
+    And I delete "Bad computer"
     Then I should not see "Bad computer"
     Then I should see "Task Deleted!"
+    And the task should not be present in the database
+
