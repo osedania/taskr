@@ -1,5 +1,6 @@
 %div
   =link_to 'Home', root_path
+  = link_to 'Current Available Tasks', tasks_path
   - if contractor_signed_in?
     = link_to 'My Profile', edit_contractor_registration_path
     = link_to 'Log Out', destroy_contractor_session_path, :method => :delete

@@ -21,3 +21,7 @@ end
 Then(/^show page$/) do
   save_and_open_page
 end
+
+Then(/^I should not see "([^"]*)"$/) do |content|
+  expect(page).not_to have_content(content)
+end

@@ -22,7 +22,8 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
+  def index
+    @tasks = Task.all
   end
 
   def edit
@@ -50,6 +51,9 @@ class TasksController < ApplicationController
     flash[:notice] = "Task Deleted!"
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
 
   private
 
