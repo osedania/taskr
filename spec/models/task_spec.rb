@@ -18,12 +18,9 @@ RSpec.describe Task, type: :model do
 
    describe 'Associations' do
     it { is_expected.to belong_to :task_category }
-    it { is_expected.to have_many :bids }  
+    it { is_expected.to have_many :bids }
+    it { is_expected.to belong_to :requester }
    end
-
-  describe 'Associations' do
-   it { is_expected.to belong_to :requester }
-  end
 
   describe 'Factory' do
     it 'should have valid Factory' do
