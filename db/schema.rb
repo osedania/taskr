@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170613085539) do
     t.datetime "updated_at", null: false
     t.bigint "task_category_id"
     t.bigint "requester_id"
+    t.string "status"
     t.index ["requester_id"], name: "index_tasks_on_requester_id"
     t.index ["task_category_id"], name: "index_tasks_on_task_category_id"
   end
