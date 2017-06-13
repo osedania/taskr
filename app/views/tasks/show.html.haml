@@ -1,6 +1,28 @@
 %h1 Task Details
 %li Task: #{@task.name}
+%li Status: #{@task.status}
 %li Description: #{@task.description}
 %li Location: #{@task.location}
 %li Min. Budget: #{@task.minimum_budget}
 %li Max. Budget: #{@task.maximum_budget}
+
+
+%h2 Bids:
+%ul
+- @task.bids.each do |bid|
+  %li
+    = "#{bid.contractor.first_name} #{bid.contractor.last_name}'s Bid: #{bid.quote}"
+  %br
+
+%div
+  %h2 New Bid
+  =form_for([:requesters, @task, @bid]) do |f|
+    - if @bid.errors.any?
+      - @bid.errors.full_messages.each do |message|
+        = message
+    .field
+      = f.label :quote, "Quote:"
+      %br/
+      = f.number_field :quote
+    .actions
+      = f.submit "Make Offer"

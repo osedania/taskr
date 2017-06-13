@@ -3,6 +3,7 @@
   = link_to "Delete task", task_path(@task), method: :delete
   %ul
     %li Task Name: #{@task.name}
+    %li Status: #{@task.status}
     %li Description: #{@task.description}
     %li Location: #{@task.location}
     %li Minimun budget: #{@task.minimum_budget}

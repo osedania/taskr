@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
   end
 
   def edit
@@ -58,6 +58,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @bid = Bid.new
   end
 
   private

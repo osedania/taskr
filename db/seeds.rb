@@ -63,21 +63,24 @@ tasks = Task.create(
     task_category: task_categories.last,
     minimum_budget: 200,
     maximum_budget: 400,
-    requester: requesters.first
+    requester: requesters.first,
+    status: 'Open'
   }, {
     name: 'Broken pipe',
     description: 'Pipe in kitchen broken',
     location: 'Stockholm, Sweden',
     task_category: task_categories.first,
     maximum_budget: 100,
-    requester: requesters.last
+    requester: requesters.last,
+    status: 'Bidding'
   }, {
     name: 'Broken toilet',
     description: 'Toilet need to be replaced',
     location: 'Stockholm, Sweden',
     task_category: task_categories.first,
     minimum_budget: 150,
-    requester: requesters.first
+    requester: requesters.first,
+    status: 'Contracted'
   }, {
     name: 'Computer not working',
     description: 'I cannot print',
@@ -85,12 +88,21 @@ tasks = Task.create(
     task_category: task_categories.last,
     minimum_budget: 200,
     maximum_budget: 200,
-    requester: requesters.last
+    requester: requesters.last,
+    status: 'Received'
   }, {
     name: 'Toaster not working',
     description: 'I cannot get any toasts in the morning!',
     location: 'Pretoria, South Africa',
     task_category: task_categories[1],
-    requester: requesters.last
+    requester: requesters.last,
+    status: 'Complete'
+  }, {
+    name: 'Peel off power stickers',
+    description: 'Peel off power stickers from my walls',
+    location: 'Miami, USA',
+    task_category: task_categories[1],
+    requester: requesters.last,
+    status: 'Closed'
   }]
 )

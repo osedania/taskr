@@ -13,7 +13,7 @@ RSpec.describe Contractor, type: :model do
     it { is_expected.to have_db_column :state }
     it { is_expected.to have_db_column :zip_code }
     it { is_expected.to have_db_column :country }
-    it { is_expected.to have_db_column :experience }    
+    it { is_expected.to have_db_column :experience }
   end
 
   describe 'Validations' do
@@ -26,6 +26,10 @@ RSpec.describe Contractor, type: :model do
     it { is_expected.to validate_presence_of :state }
     it { is_expected.to validate_presence_of :zip_code }
     it { is_expected.to validate_presence_of :country }
+  end
+
+  describe 'Associations' do
+    it { is_expected.to have_one :bid }
   end
 
   describe 'Factory' do
