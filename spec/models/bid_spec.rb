@@ -12,6 +12,7 @@ RSpec.describe Bid, type: :model do
 
   describe 'Associations' do
     it { is_expected.to belong_to :task }
+    it { is_expected.to belong_to :contractor }
   end
 
   describe 'Factory' do
