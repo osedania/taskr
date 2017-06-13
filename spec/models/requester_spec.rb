@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Requester, type: :model do
-  describe 'DB table User' do
+  describe 'DB table Requester' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :email }
     it { is_expected.to have_db_column :first_name }
