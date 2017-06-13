@@ -22,7 +22,6 @@ Given(/^I log in as contractor "([^"]*)" with password "([^"]*)"$/) do |email, p
   steps %{
     Given I am on the landing page
     And I click on "Contractor Log In"
-    Then I should see "Sign In Form"
     And I fill in field "Email" with "#{email}"
     And I fill in field "Password" with "#{password}"
     And I click on "Log In"
