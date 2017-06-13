@@ -4,5 +4,5 @@
       %li
         = link_to task.name, requesters_task_path(task)
         %ul
+          %li Status: #{task.status}
           %li Task Description: #{task.description}
-      
