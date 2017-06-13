@@ -7,9 +7,11 @@
 
 
 %h2 Bids:
+%ul
 - @task.bids.each do |bid|
-  = "Bid: #{bid.quote}" "by #{bid.contractor.first_name} #{bid.contractor.last_name}"
-
+  %li
+    = "#{bid.contractor.first_name} #{bid.contractor.last_name}'s Bid: #{bid.quote}"
+  %br
 
 %div
   %h2 New Bid

@@ -1,7 +1,6 @@
 class Requesters::BidsController < ApplicationController
 
   def create
-    # binding.pry
     @task = Task.find(params[:task_id])
     @bid = @task.bids.new(bid_params)
     @bid.contractor_id = current_contractor.id
@@ -9,8 +8,8 @@ class Requesters::BidsController < ApplicationController
       redirect_to task_path(@task)
       flash[:notice] = 'Offer Made!'
     else
-      redirect to task_path(@task)
-      flash[:notice]
+      flash[:notice] = 'Please quote an amount'
+      redirect_to task_path(@task)
     end
   end
 

@@ -18,6 +18,7 @@ RSpec.describe Task, type: :model do
 
    describe 'Associations' do
     it { is_expected.to belong_to :task_category }
+    it { is_expected.to have_many :bids }  
    end
 
   describe 'Associations' do
