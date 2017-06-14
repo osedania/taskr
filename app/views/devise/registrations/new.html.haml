@@ -1,5 +1,6 @@
 %h2 Contractor Registration Form
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = f.hidden_field :contractor, { value: resource.contractor }
   = devise_error_messages!
   .field
     = f.label :email, "Email"
@@ -48,10 +49,10 @@
     = f.label :country, "Country"
     %br/
     = f.text_field :country
-  .field
-    = f.label :experience, "Experience"
-    %br/
-    = f.text_field :experience
+  -# .field
+  -#   = f.label :experience, "Experience"
+  -#   %br/
+  -#   = f.text_field :experience
   .actions
     = f.submit "Submit"
-= render "contractors/shared/links"
+= render "devise/shared/links"

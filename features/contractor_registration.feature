@@ -7,6 +7,7 @@ Scenario:
   Given I visit the landing page
   And I click link "Contractor Sign Up"
   Then I should see "Contractor Registration Form"
+  And show page
   When I fill in field "First Name" with "Bob"
   And I fill in field "Last Name" with "Jackson"
   And I fill in field "Email" with "bob@plumbing.com"
@@ -18,9 +19,10 @@ Scenario:
   And I fill in field "State" with "Florida"
   And I fill in field "Zip Code" with "33015"
   And I fill in field "Country" with "USA"
-  And I fill in field "Experience" with "Plumber for the past 5 years"
+  # And I fill in field "Experience" with "Plumber for the past 5 years"
   And I click on "Submit"
   Then I should see "Welcome! You have signed up successfully"
+  And the new user should be a contractor
 
 
 #Sad Path without email

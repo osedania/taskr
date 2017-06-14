@@ -20,11 +20,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def contractor_signed_in?
+    binding.pry
+    current_user.contractor
+  end
+  #
+  # helper_method :contractor_signed_in?
+
+  def requester_signed_in?
+    binding.pry
+    current_user.requester
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:username, :first_name, :last_name, :email, :password)
     end
   end
-
 end

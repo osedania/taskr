@@ -23,7 +23,11 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
+    if current_user.requester?
+      @task = Task.where(requester_id: current_user.id)
+    else
+      @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
+    end
   end
 
   def edit
@@ -57,8 +61,13 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
-    @bid = Bid.new
+    if current_user.requester?
+      @task = Task.find(params[:id])
+      @task_cat = TaskCategory.find(@task.task_category_id)
+    else
+      @task = Task.find(params[:id])
+      @bid = Bid.new
+    end
   end
 
   private
