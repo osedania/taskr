@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  devise_for :contractors, controllers: { registrations: "contractors/registrations" }
-  devise_for :requesters
+  # devise_for :contractors, controllers: { registrations: "contractors/registrations" }
+  # devise_for :requesters
 
   namespace :requesters do
     resources :tasks, only: [:index, :show, :new, :create, :destroy] do

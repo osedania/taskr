@@ -5,8 +5,8 @@ I need to be able to login to my validated account.
 
   Background:
     Given the following contractor accounts exist
-    | email              | first_name  | last_name | password | password_confirmation | address     | city            | state | country      | zip_code |
-    | contractor@ab.com  | Con         | Tractor   | 12345678 | 12345678              | 123 Con St  | Contractorville | CON   | Contractalia | 321345   |
+    | email              | first_name  | last_name | password | password_confirmation | address     | city            | state | country      | zip_code | contractor |
+    | contractor@ab.com  | Con         | Tractor   | 12345678 | 12345678              | 123 Con St  | Contractorville | CON   | Contractalia | 321345   | true       |
 
   Scenario:
     Given I am on the landing page
