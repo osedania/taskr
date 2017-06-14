@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  devise_group :user, contains: [:requester, :contractor]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
@@ -23,8 +22,6 @@ class ApplicationController < ActionController::Base
   def contractor_signed_in?
     current_user.contractor
   end
-  #
-  # helper_method :contractor_signed_in?
 
   def requester_signed_in?
     current_user.requester

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates_presence_of :address, :city, :state, :zip_code, :country,  if: :contractor?
 
   def requester?
-    self.requester
+    self.requester == 'requester'
   end
 
   def contractor?

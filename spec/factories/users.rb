@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user, aliases: [:contractor, :requester] do
-    email "jack@bay.com"
+    email { Faker::Internet.email }
     first_name "Benj"
     last_name "Comey"
     password "12345678"
@@ -12,7 +12,7 @@ FactoryGirl.define do
     country "USA"
     contractor_experience "my experience"
     contractor_description "my description"
-    role "myrole"
+    role "contractor"
     insurance "my insurance"
   end
 end
