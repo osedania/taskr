@@ -21,14 +21,12 @@ class ApplicationController < ActionController::Base
   end
 
   def contractor_signed_in?
-    binding.pry
     current_user.contractor
   end
   #
   # helper_method :contractor_signed_in?
 
   def requester_signed_in?
-    binding.pry
     current_user.requester
   end
 

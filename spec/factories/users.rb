@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :user, aliases: [:contractor, :requester] do
     email "jack@bay.com"
     first_name "Benj"
     last_name "Comey"
@@ -12,9 +12,7 @@ FactoryGirl.define do
     country "USA"
     contractor_experience "my experience"
     contractor_description "my description"
-    contractor true
-    requester false
-    admin false
+    role "myrole"
     insurance "my insurance"
   end
 end
