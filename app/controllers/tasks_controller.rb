@@ -69,7 +69,8 @@ class TasksController < ApplicationController
   end
 
   def show
-    if current_user.requester?
+    binding.pry
+    if current_user && current_user.requester?
       @task = Task.find(params[:id])
       @task_cat = TaskCategory.find(@task.task_category_id)
     else
