@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
 
   describe 'Validations' do
     context "if contractor" do
-      before { allow(subject).to receive(:contractor?).and_return(true) }
+      before { allow(subject).to receive(:role).and_return('contractor') }
       it { is_expected.to validate_presence_of :address }
       it { is_expected.to validate_presence_of :city }
       it { is_expected.to validate_presence_of :state }

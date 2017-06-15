@@ -1,6 +1,6 @@
 %h2 Contractor Registration Form
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.hidden_field :contractor, { value: resource.contractor }
+  = f.hidden_field :role, { value: params[:role]}
   = devise_error_messages!
   .field
     = f.label :email, "Email"

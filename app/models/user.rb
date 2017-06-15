@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :bid
+  has_one :bid, as: :contractor
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates_presence_of :address, :city, :state, :zip_code, :country,  if: :contractor?
 
   def requester?
-    self.requester == 'requester'
+    self.role == 'requester'
   end
 
   def contractor?
