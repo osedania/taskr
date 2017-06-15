@@ -50,10 +50,10 @@
       = f.label :country, "Country"
       %br/
       = f.text_field :country
-    -# .field
-    -#   = f.label :experience, "Experience"
-    -#   %br/
-    -#   = f.text_field :experience
+    .field
+      = f.label :contractor_experience, "Experience"
+      %br/
+      = f.text_field :contractor_experience
   .actions
     = f.submit "Submit"
 = render "devise/shared/links"
