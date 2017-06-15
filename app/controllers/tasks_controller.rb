@@ -5,6 +5,7 @@ class TasksController < ApplicationController
     @task_categories = TaskCategory.all
   end
 
+
   def create
     if current_user.nil?
       session[:task] = task_params
@@ -23,18 +24,13 @@ class TasksController < ApplicationController
   end
 
   def index
-    if params[:type] == "all"
-      @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
+    if params[:type] == 'all'
+      @tasks = Task.where('status = ? OR status = ?', 'Open', 'Bidding')
+    elsif params[:type] == 'requester'
+        @tasks = Task.where(user: current_user)
+        render action: '../requesters/tasks/index'
     else
-      if current_user.requester?
-        @tasks = Task.where(user_id: current_user.id)
 
-      end
-    #
-    # if current_user.requester?
-    #   @task = Task.where(requester_id: current_user.id)
-    # else
-    #   @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
     end
   end
 
@@ -45,10 +41,12 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.requester === current_user
+    if @task.user === current_user
       if @task.update_attributes(task_params)
-        redirect_to requesters_task_path(@task)
+        @tasks = Task.where(user: current_user)
+        @task_cat = TaskCategory.find(@task.task_category_id)
         flash[:notice] = "Task Updated!"
+        render action: '../requesters/tasks/show'
       else
         render 'edit'
       end
@@ -59,19 +57,23 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find(params[:id])
-    if @task.requester === current_user
+    if @task.user === current_user
       @task.destroy
-      redirect_to requesters_tasks_path
+      @tasks = Task.where(user: current_user)
+      @task_cat = TaskCategory.find(@task.task_category_id)
       flash[:notice] = "Task Deleted!"
+      render action: '../requesters/tasks/index'
     else
       flash[:notice] = "Sorry, you can't delete this task"
     end
   end
 
   def show
-    if current_user && current_user.requester?
-      @task = Task.find(params[:id])
-      @task_cat = TaskCategory.find(@task.task_category_id)
+    if params[:page] == 'for_requester' && current_user.requester?
+        @task = Task.find(params[:id])
+        @task_cat = TaskCategory.find(@task.task_category_id)
+        render action: '../requesters/tasks/show'
+
     else
       @task = Task.find(params[:id])
       @bid = Bid.new

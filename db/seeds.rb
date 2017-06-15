@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-contractors = Contractor.create(
+contractors = User.create(
   [{
     email: 'contractor1@c.com',
     password: '12345678',
@@ -19,7 +19,8 @@ contractors = Contractor.create(
     state: 'Conststate',
     zip_code: '12345',
     country: 'Constcountry',
-    experience: '1This is my experience'
+    contractor_experience: '1This is my experience',
+    role: 'contractor'
   }, {
     email: 'contractor2@c.com',
     password: '12345678',
@@ -32,23 +33,27 @@ contractors = Contractor.create(
     state: 'Powerstate',
     zip_code: '54321',
     country: 'Powercountry',
-    experience: '2This is my experience'
+    contractor_experience: '2This is my experience',
+    role: 'contractor'
+
   }]
 )
 
-requesters = Requester.create(
+requesters = User.create(
   [{
     email: 'requester1@r.com',
     password: '12345678',
     password_confirmation: '12345678',
     first_name: 'Jane1',
-    last_name: 'Doanne1'
+    last_name: 'Doanne1',
+    role: 'requester'
   }, {
     email: 'requester2@r.com',
     password: '12345678',
     password_confirmation: '12345678',
     first_name: 'Jane2',
-    last_name: 'Doanne2'
+    last_name: 'Doanne2',
+    role: 'requester'
   }]
 )
 task_categories = TaskCategory.create(
@@ -63,7 +68,7 @@ tasks = Task.create(
     task_category: task_categories.last,
     minimum_budget: 200,
     maximum_budget: 400,
-    requester: requesters.first,
+    user: requesters.first,
     status: 'Open'
   }, {
     name: 'Broken pipe',
@@ -71,7 +76,7 @@ tasks = Task.create(
     location: 'Stockholm, Sweden',
     task_category: task_categories.first,
     maximum_budget: 100,
-    requester: requesters.last,
+    user: requesters.last,
     status: 'Bidding'
   }, {
     name: 'Broken toilet',
@@ -79,7 +84,7 @@ tasks = Task.create(
     location: 'Stockholm, Sweden',
     task_category: task_categories.first,
     minimum_budget: 150,
-    requester: requesters.first,
+    user: requesters.first,
     status: 'Contracted'
   }, {
     name: 'Computer not working',
@@ -88,21 +93,21 @@ tasks = Task.create(
     task_category: task_categories.last,
     minimum_budget: 200,
     maximum_budget: 200,
-    requester: requesters.last,
+    user: requesters.last,
     status: 'Received'
   }, {
     name: 'Toaster not working',
     description: 'I cannot get any toasts in the morning!',
     location: 'Pretoria, South Africa',
     task_category: task_categories[1],
-    requester: requesters.last,
+    user: requesters.last,
     status: 'Complete'
   }, {
     name: 'Peel off power stickers',
     description: 'Peel off power stickers from my walls',
     location: 'Miami, USA',
     task_category: task_categories[1],
-    requester: requesters.last,
+    user: requesters.last,
     status: 'Closed'
   }]
 )

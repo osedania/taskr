@@ -1,6 +1,6 @@
 Given(/^I am logged in as "([^"]*)"$/) do |email|
   requester = User.find_by(email: email)
-  login_as(requester, scope: :requester)
+  login_as(requester, scope: :user)
   visit root_path
 end
 
