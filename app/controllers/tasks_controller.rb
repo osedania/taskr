@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :check_for_user, only: [:create]
 
   def new
     @task = Task.new
@@ -7,19 +8,14 @@ class TasksController < ApplicationController
 
 
   def create
-    if current_user.nil?
-      session[:task] = task_params
-      redirect_to new_user_session_path
+    @task = Task.new(task_params)
+    @task.user = current_user
+    @task.task_category_id = params[:task][:task_category_id]
+    if @task.save
+      redirect_to task_path(@task)
+      flash[:notice] = 'Task was successfully posted!'
     else
-      @task = Task.new(task_params)
-      @task.user = current_user
-      @task.task_category_id = params[:task][:task_category_id]
-      if @task.save
-        redirect_to task_path(@task)
-        flash[:notice] = 'Task was successfully posted!'
-      else
-        render 'new'
-      end
+      render 'new'
     end
   end
 
@@ -27,10 +23,8 @@ class TasksController < ApplicationController
     if params[:type] == 'all'
       @tasks = Task.where('status = ? OR status = ?', 'Open', 'Bidding')
     elsif params[:type] == 'requester'
-        @tasks = Task.where(user: current_user)
-        render action: '../requesters/tasks/index'
-    else
-
+      @tasks = Task.where(user: current_user)
+      render action: '../requesters/tasks/index'
     end
   end
 
@@ -41,10 +35,9 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.user === current_user
+    if @task.user == current_user
       if @task.update_attributes(task_params)
-        @tasks = Task.where(user: current_user)
-        @task_cat = TaskCategory.find(@task.task_category_id)
+        assign_tasks_and_task_category
         flash[:notice] = "Task Updated!"
         render action: '../requesters/tasks/show'
       else
@@ -57,10 +50,9 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find(params[:id])
-    if @task.user === current_user
+    if @task.user == current_user
       @task.destroy
-      @tasks = Task.where(user: current_user)
-      @task_cat = TaskCategory.find(@task.task_category_id)
+      assign_tasks_and_task_category
       flash[:notice] = "Task Deleted!"
       render action: '../requesters/tasks/index'
     else
@@ -70,10 +62,9 @@ class TasksController < ApplicationController
 
   def show
     if params[:page] == 'for_requester' && current_user.requester?
-        @task = Task.find(params[:id])
-        @task_cat = TaskCategory.find(@task.task_category_id)
-        render action: '../requesters/tasks/show'
-
+      @task = Task.find(params[:id])
+      @task_cat = @task.task_category
+      render action: '../requesters/tasks/show'
     else
       @task = Task.find(params[:id])
       @bid = Bid.new
@@ -92,6 +83,18 @@ class TasksController < ApplicationController
                  :country,
                  :task_category_id,
                  :requester_id)
+  end
+
+  def check_for_user
+    if current_user.nil?
+      session[:task] = task_params
+      redirect_to new_user_session_path
+    end
+  end
+
+  def assign_tasks_and_task_category
+    @tasks = Task.where(user: current_user)
+    @task_cat = @task.task_category
   end
 
 end

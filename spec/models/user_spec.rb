@@ -37,11 +37,51 @@ RSpec.describe User, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory for contractor' do
-      expect(FactoryGirl.create(:contractor)).to be_valid
+      expect(create(:contractor)).to be_valid
     end
 
     it 'should have valid Factory for requester' do
-      expect(FactoryGirl.create(:requester)).to be_valid
+      expect(create(:requester)).to be_valid
     end
   end
+
+  describe '#role' do
+
+    it 'can set the role to contractor' do
+      contractor = create(:contractor, role: 'contractor')
+      expect(contractor).to be_valid
+    end
+
+    it 'returns true on #contractor? if role == \'contractor\'' do
+      contractor = create(:contractor, role: 'contractor')
+      expect(contractor.contractor?).to eq true
+    end
+
+    it 'returns false on #contractor? if role != \'contractor\'' do
+      not_contractor = create(:user, role: 'requester')
+      expect(not_contractor.contractor?).to eq false
+    end
+
+    it 'can set the role to restaurant owner' do
+      requester = create(:user, role: 'requester')
+      expect(requester).to be_valid
+    end
+
+    it 'returns true on #requester? if role == \'requester\'' do
+      requester = create(:user, role: 'requester')
+      expect(requester.requester?).to eq true
+    end
+
+    it 'returns false on #requester? if role != \'requester\'' do
+      not_requester = create(:contractor, role: 'contractor')
+      expect(not_requester.requester?).to eq false
+    end
+
+    it 'cannot set the role to x' do
+      expect { create(:user, role: 'x') }
+          .to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Role x is not permitted')
+    end
+  end
+
+
 end

@@ -20,7 +20,7 @@ FactoryGirl.define do
     country "USA"
     contractor_experience "my experience"
     contractor_description "my description"
-    role "contractor"
+    role :contractor
     insurance "my insurance"
   end
 
@@ -30,6 +30,6 @@ FactoryGirl.define do
     last_name "Comey"
     password "12345678"
     password_confirmation "12345678"
-    role "requester"
+    role :requester
   end
 end

@@ -19,14 +19,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def contractor_signed_in?
-    current_user.contractor
-  end
-
-  def requester_signed_in?
-    current_user.requester
-  end
-
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|

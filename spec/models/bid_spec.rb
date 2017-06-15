@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'user'
 
 RSpec.describe Bid, type: :model do
   describe 'DB table Bid' do

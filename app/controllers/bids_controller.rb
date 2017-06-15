@@ -4,7 +4,7 @@ class BidsController < ApplicationController
     @task = Task.find(params[:task_id])
     if Bid.exists?(user: current_user)
       redirect_to task_path(@task)
-      flash[:notice] = 'Sorry you can only make an offer. Please update your offer if you need to change your bid'
+      flash[:notice] = 'Sorry you can only make one offer. Please update your current offer if you need to change your bid'
     else
       @bid = @task.bids.new(bid_params)
       @bid.user = current_user
