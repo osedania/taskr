@@ -23,9 +23,7 @@ Scenario:
   Then I should see "Welcome! You have signed up successfully"
   And the new user should be a contractor
 
-
-#Sad Path without email
-Scenario:
+Scenario: Sad Path without email
   Given I visit the landing page
   And I click link "Contractor Sign Up"
   Then I should see "Registration Form"

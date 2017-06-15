@@ -26,7 +26,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'launchy'
-  gem 'guard'
   gem 'guard-rails', require: false
 end
 

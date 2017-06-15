@@ -18,11 +18,11 @@ Feature: View list of task requests
       | Cleaning            |
 
     And the following tasks exists
-      | name                | description             | location             | task_category | minimum_budget | maximum_budget  | user       |
-      | Bad computer        | faulty motherboard      | Gothenborg, Sweden   | Computer      | 200            | 400             | requester@ab.com |
-      | Bad mowing machine  | power surge damaged     | Gothenborg, Sweden   | Electrical    | 250            | 500             | requester@ab.com |
-      | Broken pipe         | pipe in kitchen broken  | Gothenborg, Sweden   | Plumbing      | 350            | 600             | requester2@ab.com|
-      | fix broken table    | faulty motherboard      | Gothenborg, Sweden   | Carpentry     | 450            | 700             | requester2@ab.com|
+      | name                | description             | location             | task_category | user             |
+      | Bad computer        | faulty motherboard      | Gothenborg, Sweden   | Computer      | requester@ab.com |
+      | Bad mowing machine  | power surge damaged     | Gothenborg, Sweden   | Electrical    | requester@ab.com |
+      | Broken pipe         | pipe in kitchen broken  | Gothenborg, Sweden   | Plumbing      | requester2@ab.com|
+      | fix broken table    | faulty motherboard      | Gothenborg, Sweden   | Carpentry     | requester2@ab.com|
 
   Scenario: View list of task requests
     Given I visit the landing page

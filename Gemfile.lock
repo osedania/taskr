@@ -295,7 +295,6 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
-  guard
   guard-rails
   haml-rails (~> 0.9)
   jbuilder (~> 2.5)
