@@ -23,11 +23,19 @@ class TasksController < ApplicationController
   end
 
   def index
-    if current_user.requester?
-      @task = Task.where(requester_id: current_user.id)
-    else
+    if params[:type] == "all"
       @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
-    end
+    else
+      if current_user.requester?
+        @tasks = Task.where(user_id: current_user.id)
+
+      end
+    #
+    # if current_user.requester?
+    #   @task = Task.where(requester_id: current_user.id)
+    # else
+    #   @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
+    # end
   end
 
   def edit

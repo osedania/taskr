@@ -1,12 +1,12 @@
 %div
   =link_to 'Home', root_path
-  = link_to 'Current Available Tasks', tasks_path
+  = link_to 'Current Available Tasks', tasks_path( {type: 'all'})
   - if user_signed_in? && current_user.contractor?
     = link_to 'My Profile', edit_user_registration_path
     = link_to 'Log Out', destroy_user_session_path, method: :delete
   - elsif user_signed_in? && current_user.requester?
-    = link_to "View My Tasks", requesters_tasks_path
-    = link_to 'Log Out', destroy_requester_session_path, method: :delete
+    = link_to "View My Tasks", tasks_path({type: 'requester'})
+    = link_to 'Log Out', destroy_user_session_path, method: :delete
   - else
     = link_to 'Requester Log In', new_user_session_path
     = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester"  })

@@ -6,7 +6,7 @@ Feature: Contractor Registration
 Scenario:
   Given I visit the landing page
   And I click link "Contractor Sign Up"
-  Then I should see "Contractor Registration Form"
+  Then I should see "Registration Form"
   When I fill in field "First Name" with "Bob"
   And I fill in field "Last Name" with "Jackson"
   And I fill in field "Email" with "bob@plumbing.com"
@@ -28,7 +28,7 @@ Scenario:
 Scenario:
   Given I visit the landing page
   And I click link "Contractor Sign Up"
-  Then I should see "Contractor Registration Form"
+  Then I should see "Registration Form"
   When I fill in field "First Name" with "Bob"
   And I fill in field "Last Name" with "Jackson"
   And I fill in field "Email" with ""
