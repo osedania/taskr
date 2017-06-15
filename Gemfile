@@ -28,9 +28,6 @@ group :development, :test do
   gem 'launchy'
   gem 'guard'
   gem 'guard-rails', require: false
-  gem 'guard-cucumber'
-  gem 'guard-rspec', require: false
-  gem 'guard-haml'
 end
 
 group :development do
