@@ -36,8 +36,12 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Factory' do
-    it 'should have valid Factory' do
-      expect(FactoryGirl.create(:user)).to be_valid
+    it 'should have valid Factory for contractor' do
+      expect(FactoryGirl.create(:contractor)).to be_valid
+    end
+
+    it 'should have valid Factory for requester' do
+      expect(FactoryGirl.create(:requester)).to be_valid
     end
   end
 end
