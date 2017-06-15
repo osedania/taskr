@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     #   @task = Task.where(requester_id: current_user.id)
     # else
     #   @tasks = Task.where("status = ? OR status = ?", "Open", "Bidding")
-    # end
+    end
   end
 
   def edit

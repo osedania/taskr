@@ -11,12 +11,12 @@
 %ul
 - @task.bids.each do |bid|
   %li
-    = "#{bid.contractor.first_name} #{bid.contractor.last_name}'s Bid: #{bid.quote}"
+    = "#{bid.user.first_name} #{bid.user.last_name}'s Bid: #{bid.quote}"
   %br
 
 %div
   %h2 New Bid
-  =form_for([:requesters, @task, @bid]) do |f|
+  =form_for([@task, @bid]) do |f|
     - if @bid.errors.any?
       - @bid.errors.full_messages.each do |message|
         = message

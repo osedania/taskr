@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :task do
-    user
+    association :user, factory: :requester
     name "MyString"
     description "MyString"
     location "MyString"

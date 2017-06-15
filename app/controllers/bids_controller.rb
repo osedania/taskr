@@ -1,13 +1,13 @@
-class Requesters::BidsController < ApplicationController
+class BidsController < ApplicationController
 
   def create
     @task = Task.find(params[:task_id])
-    if Bid.exists?(contractor_id: current_contractor.id)
+    if Bid.exists?(user: current_user)
       redirect_to task_path(@task)
       flash[:notice] = 'Sorry you can only make an offer. Please update your offer if you need to change your bid'
     else
       @bid = @task.bids.new(bid_params)
-      @bid.contractor_id = current_contractor.id
+      @bid.user = current_user
       if @bid.save
         redirect_to task_path(@task)
         flash[:notice] = 'Offer Made!'
