@@ -14,12 +14,12 @@ class RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:username, :first_name, :last_name, :email, :password, :address,
                :remember_me, :address, :city, :state, :zip_code, :country,
-               :company_name, :experience, :role)
+               :company_name, :contractor_experience, :role)
     end
     devise_parameter_sanitizer.permit(:account_update) do |u|
       u.permit(:username, :first_name, :last_name, :email, :password, :address,
                :remember_me, :address, :city, :state, :zip_code, :country,
-               :company_name, :experience, :current_password)
+               :company_name, :contractor_experience, :current_password)
     end
   end
 

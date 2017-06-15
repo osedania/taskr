@@ -17,7 +17,7 @@ Scenario:
   And I fill in field "City" with "Miami Lakes"
   And I fill in field "State" with "Florida"
   And I fill in field "Zip Code" with "33015"
-  And I fill in field "Country" with "USA"
+  And I fill in field "Country" with "South Africa"
   And I fill in field "Experience" with "Plumber for the past 5 years"
   And I click on "Submit"
   Then I should see "Welcome! You have signed up successfully"
