@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if session[:task].present?
       @task = Task.new(session[:task])
-      @task.requester_id = current_user.id
+      @task.user = current_user
       if @task.save
         session[:task] = nil
         flash[:notice] = "Task was successfully posted!"
-        requesters_task_path(@task)
+        task_path(@task)
       else
         new_task_path
       end

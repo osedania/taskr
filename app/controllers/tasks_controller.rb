@@ -9,13 +9,13 @@ class TasksController < ApplicationController
   def create
     if current_user.nil?
       session[:task] = task_params
-      redirect_to new_requester_session_path
+      redirect_to new_user_session_path
     else
       @task = Task.new(task_params)
-      @task.requester_id = current_user.id
+      @task.user = current_user
       @task.task_category_id = params[:task][:task_category_id]
       if @task.save
-        redirect_to requesters_task_path(@task)
+        redirect_to task_path(@task)
         flash[:notice] = 'Task was successfully posted!'
       else
         render 'new'
