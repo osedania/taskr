@@ -6,7 +6,6 @@ class TasksController < ApplicationController
     @task_categories = TaskCategory.all
   end
 
-
   def create
     @task = Task.new(task_params)
     @task.user = current_user
@@ -21,7 +20,7 @@ class TasksController < ApplicationController
 
   def index
     if params[:type] == 'all'
-      @tasks = Task.where('status = ? OR status = ?', 'Open', 'Bidding')
+      @tasks = Task.where(status: ['Open', 'Bidding'])
     elsif params[:type] == 'requester'
       @tasks = Task.where(user: current_user)
       render action: '../requesters/tasks/index'
@@ -38,7 +37,7 @@ class TasksController < ApplicationController
     if @task.user == current_user
       if @task.update_attributes(task_params)
         assign_tasks_and_task_category
-        flash[:notice] = "Task Updated!"
+        flash[:notice] = 'Task Updated!'
         render action: '../requesters/tasks/show'
       else
         render 'edit'

@@ -1,12 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
   def new
-    build_resource(role: params[:role])
-    yield resource if block_given?
-    respond_with resource
+    super { |resource| resource.role = params[:role] }
   end
-
 
   protected
 
@@ -22,5 +17,4 @@ class RegistrationsController < Devise::RegistrationsController
                :company_name, :contractor_experience, :current_password)
     end
   end
-
 end
