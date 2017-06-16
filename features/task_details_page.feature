@@ -11,3 +11,4 @@ Scenario: View a requesters tasks
   And I click link "Bad computer"
   Then I should see "Gothenborg, Sweden"
   And I should see "200"
+  And I should see "2017-07-07"

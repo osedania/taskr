@@ -22,7 +22,7 @@ Feature: View list of task requests
       | Bad computer        | faulty motherboard      | Gothenborg, Sweden   | Computer      | requester@ab.com |
       | Bad mowing machine  | power surge damaged     | Gothenborg, Sweden   | Electrical    | requester@ab.com |
       | Broken pipe         | pipe in kitchen broken  | Gothenborg, Sweden   | Plumbing      | requester2@ab.com|
-      | fix broken table    | faulty motherboard      | Gothenborg, Sweden   | Carpentry     | requester2@ab.com|
+      | fix broken table    | faulty motherboard      | Gothenborg, Sweden   | Carpentry     | requester2@ab.com| 
 
   Scenario: View list of task requests
     Given I visit the landing page
