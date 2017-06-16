@@ -28,15 +28,12 @@ Feature: Post New task
     And I click on "Submit"
     And I fill in field "Email" with "requester@ab.com"
     And I fill in field "Password" with "12345678"
-    And I click on "Log In"
+    And I click on "Sign In"
     Then I should see "Task was successfully posted!"
 
     Scenario: Post task if user is logged in already
-      Given I visit the landing page
-      And I click on "Requester Log In"
-      And I fill in field "Email" with "requester@ab.com"
-      And I fill in field "Password" with "12345678"
-      And I click on "Log In"
+      Given I am logged in as "requester@ab.com"
+      And I visit the landing page
       And I click on "Post new task"
       And I fill in field "Task Name" with "Broken Sink"
       And I fill in field "Description" with "Clogged Sink"

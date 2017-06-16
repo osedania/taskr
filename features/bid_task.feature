@@ -28,4 +28,4 @@ Feature: Bid for task
     And I click on "Make Offer"
     And I fill in field "Quote:" with "700"
     And I click on "Make Offer"
-    Then I should see "Sorry you can only make an offer. Please update your offer if you need to change your bid"
+    Then I should see "Sorry you can only make one offer. Please update your current offer if you need to change your bid"
