@@ -82,6 +82,4 @@ RSpec.describe User, type: :model do
           .to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Role x is not permitted')
     end
   end
-
-
 end
