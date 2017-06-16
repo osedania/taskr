@@ -18,18 +18,18 @@ Feature: Status attribute to task object
     Then I should see "Status:"
 
   Scenario: The view of a requester's tasks has a status field
-    Given I log in as requester "requester1@r.com" with password "12345678"
+    Given I am logged in as "requester1@r.com"
     And I click link "View My Tasks"
     Then I should see "Status:"
 
   Scenario: The view of a requester's task details has a status field
-    Given I log in as requester "requester1@r.com" with password "12345678"
+    Given I am logged in as "requester1@r.com"
     And I click link "View My Tasks"
     And I click link "Broken pipe"
     Then I should see "Status:"
 
   Scenario: A task with a status other than open or bidding, does not show on the common task list
-    Given I log in as requester "requester1@r.com" with password "12345678"
+    Given I am logged in as "requester1@r.com"
     And I visit the landing page
     And I click link "Current Available Tasks"
     Then I should see "Bad computer"

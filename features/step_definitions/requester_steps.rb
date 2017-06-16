@@ -7,3 +7,8 @@ Given(/^I log in as requester "([^"]*)" with password "([^"]*)"$/) do |email, pa
     And I click on "Log In"
   }
 end
+#
+Then(/^the new user should be a requester$/) do
+  user = User.last
+  expect(user.requester?).to eq true
+end

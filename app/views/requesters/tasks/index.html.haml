@@ -1,8 +1,8 @@
 %div
   %ul
-    - @task.each do |task|
+    - @tasks.each do |task|
       %li
-        = link_to task.name, requesters_task_path(task)
+        = link_to task.name, task_path(task, {page: 'for_requester'})
         %ul
           %li Status: #{task.status}
           %li Task Description: #{task.description}
