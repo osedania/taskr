@@ -16,6 +16,10 @@
     %br/
     = f.text_field :location, required: true
   .field
+    = f.label :time_frame, "Time Frame:"
+    %br/
+    = f.text_field :time_frame, required: true
+  .field
     = f.label :task_category_id, "Task Category"
     %br/
     = f.collection_select(:task_category_id, @task_categories, :id, :name)
