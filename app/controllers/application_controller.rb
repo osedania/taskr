@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     if session[:task].present?
       @task = Task.new(session[:task])
       @task.user = current_user
+      @task.status = "Open"
       if @task.save
         session[:task] = nil
         flash[:notice] = "Task was successfully posted!"

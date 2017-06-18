@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20170616153531) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "task_category_id"
-    t.string "status"
     t.string "slug"
+    t.string "status"
     t.bigint "user_id"
     t.string "time_frame"
     t.index ["slug"], name: "index_tasks_on_slug", unique: true

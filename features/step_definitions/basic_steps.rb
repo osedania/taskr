@@ -26,7 +26,10 @@ Then(/^I should not see "([^"]*)"$/) do |content|
   expect(page).not_to have_content(content)
 end
 
-
 And(/^start debugger$/) do
   binding.pry
+end
+
+Given(/^I check "([^"]*)" checkbox$/) do |checkbox|
+  page.find('input[type=checkbox]').set(true)
 end

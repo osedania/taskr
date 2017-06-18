@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = current_user
     @task.task_category_id = params[:task][:task_category_id]
+    @task.status = "Open"
     if @task.save
       redirect_to task_path(@task)
       flash[:notice] = 'Task was successfully posted!'

@@ -25,5 +25,9 @@
       = f.label :quote, "Quote:"
       %br/
       = f.number_field :quote
+    .field
+      = f.check_box :terms_of_service
+      = f.label :terms_of_service, " I have read and agree to the "
+      = link_to "Bidding Terms and Conditions", bid_terms_doc_path, target: :_blank
     .actions
       = f.submit "Make Offer"
