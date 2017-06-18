@@ -13,7 +13,9 @@ class BidsController < ApplicationController
     else
       @bid = @task.bids.new(bid_params)
       @bid.user = current_user
+      @task.status = 'Bidding'
       @bid.save
+      @task.save
       redirect_to task_path(@task)
       flash[:notice] = 'Offer Made!'
     end
