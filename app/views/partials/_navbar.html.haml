@@ -2,8 +2,6 @@
   #wrapper
     %header#header
       .container
-        -# %a.navbar-brand{ href: root_path }
-        -#   = image_tag ('logo.svg'), {alt: "Taskr", height: "39", width: "117"}
         = link_to (image_tag('logo.svg')), root_path, class: 'navbar-brand', width:"117", height:"39"
         %nav#nav.navbar.navbar-collapsed-sm.navbar-default{role: "navigation"}
           .navbar-header

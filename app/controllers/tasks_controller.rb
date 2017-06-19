@@ -24,6 +24,7 @@ class TasksController < ApplicationController
       @tasks = Task.where(status: ['Open', 'Bidding'])
     elsif params[:type] == 'requester'
       @tasks = Task.where(user: current_user)
+      @task_categories = TaskCategory.all
       render action: '../requesters/tasks/index'
     end
     @task_categories = TaskCategory.all

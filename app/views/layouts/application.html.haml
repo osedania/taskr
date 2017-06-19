@@ -1,19 +1,17 @@
 !!!
 %html
   %title Home | Taskr - Online Job Market Place
-  %meta{content: "job marketplace, hiring, professionals, contractors", name: "keywords"}/
-  %meta{content: "Taskr is an online job marketplace for contractors and people who need to get things fixed ", name: "description"}/
-  %meta{content: "taskr.com", name: "author"}/
-  %meta{content: "all", name: "robots"}/
-  %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-  %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-  %link{href: "assets/images/meta_icons/favicon.ico", rel: "shortcut icon", type: "image/x-icon"}/
-  %link{href: "assets/images/meta_icons/apple-touch-icon.png", rel: "apple-touch-icon-precomposed"}/
+  %meta{content: "job marketplace, hiring, professionals, contractors", name: "keywords"}
+  %meta{content: "Taskr is an online job marketplace for contractors and people who need to get things fixed ", name: "description"}
+  %meta{content: "taskr.com", name: "author"}
+  %meta{content: "all", name: "robots"}
+  %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+  %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+  %link{href: "assets/images/meta_icons/favicon.ico", rel: "shortcut icon", type: "image/x-icon"}
+  %link{href: "assets/images/meta_icons/apple-touch-icon.png", rel: "apple-touch-icon-precomposed"}
   = csrf_meta_tags
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
-  = render 'partials/navbar'
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   %p.notice
     = notice
   %p.alert
