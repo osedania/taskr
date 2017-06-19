@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require docs
+ *= require taskr_green
+ *= require_tree ./bootstrap
  */

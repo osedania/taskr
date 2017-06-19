@@ -1,4 +1,91 @@
-%div
-  = link_to 'Post new task', new_task_path
+#main-content
+  .container
+    .row
+      .col-sm-12
+        %h2.text-center What is Taskr?
+        %p.lead.lead-lg.text-center.fadeInUpBig.animated An online marketplace for connecting people to request and do everyday jobs and tasks.
+    .panels-wrapper
+      .row.panels
+        .col-sm-4.panel-item
+          %a.panel.panel-image{ href: new_task_path }
+            .panel-icon
+              %i.fa.fa-clock-o.icon
+            .panel-heading
+              = image_tag ('postjob.jpg'), class: 'img-responsive-sm', width:"768", height:"300"
+            .panel-body
+              %h3.panel-title Post your task
+              %p Post the job/task you need done to see bids from various contractors.
+        .col-sm-4.panel-item
+          %a.panel.panel-image{href: "#"}
+            .panel-icon
+              %i.fa.fa-cog.icon
+            .panel-heading
+              = image_tag ('bids.jpg'), class: 'img-responsive-sm', width:"768", height:"300"
+            .panel-body
+              %h3.panel-title Review quotes
+              %p Select preferred bid from several offers made by contractors.
+        .col-sm-4.panel-item
+          %a.panel.panel-image{href: "#"}
+            .panel-icon
+              %i.fa.fa-rocket.icon
+            .panel-heading
+              = image_tag ('execute.jpg'), class: 'img-responsive-sm', width:"768", height:"300"
+            .panel-body
+              %h3.panel-title Execute Task
+              %p Task is executed by contractor and payment released after completion.
 
-%p Welcome to Taskr, your HelpHub for Tasks
+    .row
+      .col-sm-12
+        .page-header.page-header-with-icon
+          %i.fa.fa-star
+          %h2 Top features
+        .text-boxes
+          .row.text-box
+            .col-sm-6
+              = image_tag ('electrician.jpg'), class:'img-responsive.center-block', height: "188", width: "340"
+            .col-sm-6
+              %h3.title
+                %a{href: "#"} Verified Contractors
+              %p We protect all customers using Takr by ensuring all contractors are verified and confirmed.
+              %a.btn.btn-contrast.btn-bordered.btn-sm{href: "#"} Read more
+          %hr/
+          .row.text-box
+            .col-sm-6.col-sm-push-6
+              = image_tag ('contractor.png'), class:'img-responsive.center-block', height: "188", width: "340"
+            .col-sm-6.col-sm-pull-6
+              %h3.title
+                %a{href: "#"} Easy to post a new task
+              %p Posting a new task is easy and straight forward. No hassle..
+              %a.btn.btn-contrast.btn-bordered.btn-sm{href: "#"} Read more
+    .row
+      .col-sm-12
+        .page-header.page-header-with-icon
+          %i.fa.fa-suitcase
+          %h2
+            Job Categories
+            %small See some of our popular categories.
+        .row.portfolio-boxes
+          .col-sm-3.col-xs-6.no-mb-t-xs.portfolio-box
+            %a.image-link{href: "#"}
+              %i.fa.fa-search
+              = image_tag ('jobcategories.png'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+            %h3.title Plumbing
+          .col-sm-3.col-xs-6.no-mb-t-xs.portfolio-box
+            %a.image-link{href: "portfolio_detail.html"}
+              %i.fa.fa-link
+              = image_tag ('jobcategories2.jpg'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+            %h3.title Computers
+          .col-sm-3.col-xs-6.portfolio-box
+            %a{href: "portfolio_detail.html"}
+              .image-link
+                %i.fa.fa-search
+                = image_tag ('jobcategories3.jpg'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+              %h3.title Electrical
+          .col-sm-3.col-xs-6.portfolio-box
+            %a{href: "portfolio_detail.html"}
+              .image-link
+                %i.fa.fa-search
+                = image_tag ('jobcategories4.png'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+              %h3.title Carpentry
+    #scroll-to-top.fade
+      %i.fa.fa-chevron-up

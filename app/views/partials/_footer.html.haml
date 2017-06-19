@@ -1,0 +1,79 @@
+%footer#footer
+  #footer-main
+    .container
+      .row
+        .col-md-3.col-sm-6.info-box
+          .logo-container
+            = image_tag ('logo.svg'), width: '117', height: '39'
+          %p.no-mg-b An online marketplace for connecting people to request and do everyday jobs and tasks.
+        .col-md-3.col-sm-6.info-box
+          %h2.title Contact
+          .icon-boxes
+            .icon-box
+              .icon.icon-wrap
+                %i.fa.fa-map-marker
+              .content
+                4567 Mollerstrom street,
+                %br/
+                012 12 Miami, USA
+            .icon-box
+              .icon.icon-wrap
+                %i.fa.fa-phone
+              .content
+                %a{href: "tel:+012345678"} +1 444 000 6788
+            .icon-box
+              .icon.icon-wrap
+                %i.fa.fa-envelope
+              .content
+                %a{href: "mailto:info@taskr.com"} info@taskr.com
+            .icon-box
+              .icon.icon-wrap
+                %i.fa.fa-globe
+              .content
+                %a{href: "#"} www.taskr.com
+        .col-md-3.col-sm-6.info-box.social-box
+          %h2.title Latest tweets
+          .icon-boxes
+            .icon-box
+              .icon.icon-wrap
+                %i.fa.fa-twitter.text-contrast
+              .content
+                %p
+                  Thanks Takr for this amazing platform. My task was executed on time.
+                  %br/
+                  %a.time{href: "#"}
+                    %i 1 hour ago
+            .icon-box
+              .icon.icon-wrap
+                %i.fa.fa-twitter.text-contrast
+              .content
+                %p
+                  Taskr! rocks
+                  %br/
+                  %a.time{href: "#"}
+                    %i 3 hours ago
+        .col-md-3.col-sm-6.info-box
+          %h2.title Newsletter
+          %p Enter your email and click on the arrow button to subscribe to our newsletters.
+          %form.form-inline.form-validation{action: "index.html", method: "get"}
+            .row
+              .form-group.control-group.col-xs-9.col-md-8.col-lg-9
+                %input#newsletter_email.form-control{"data-rule-email" => "true", "data-rule-required" => "true", name: "newsletter[email]", placeholder: "Email address", type: "email"}/
+              .col-xs-3.col-md-4.col-lg-3
+                %button.btn.btn-medium-light.btn-block{type: "submit"}
+                  %i.fa.fa-reply.text-white
+  #footer-copyright
+    .container
+      .row
+        .col-lg-12.clearfix
+          %p.copyright
+            Copyright
+            ©
+            2017 Taskr
+          .links
+            %a.btn.btn-circle.btn-medium-light.btn-sm{href: "#"}
+              %i.fa.fa-twitter.text-dark
+            %a.btn.btn-circle.btn-medium-light.btn-sm{href: "#"}
+              %i.fa.fa-dribbble.text-dark
+            %a.btn.btn-circle.btn-medium-light.btn-sm{href: "#"}
+              %i.fa.fa-facebook.text-dark
