@@ -26,6 +26,7 @@ class TasksController < ApplicationController
       @tasks = Task.where(user: current_user)
       render action: '../requesters/tasks/index'
     end
+    @task_categories = TaskCategory.all
   end
 
   def edit

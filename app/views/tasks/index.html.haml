@@ -1,9 +1,85 @@
-%h1 Current Available Tasks List
-- @tasks.each do |task|
-  %ul
-    %li= link_to "#{task.name}", task_path(task.id)
-    %li Status: #{task.status}
-    %li Location: #{task.location}
-    %li Time Frame: #{task.time_frame}
-    %li Min. Budget: #{task.minimum_budget}
-    %li Max. Budget: #{task.maximum_budget}
+#main{role: "main"}
+  #main-content-header
+    .container
+      .row
+        .col-sm-12
+          %h1.title
+            Open Tasks
+  #main-content
+    .container
+      .row
+        .col-md-push-9.col-sm-push-8.col-sm-4.col-md-3
+          %nav.sidebar
+            %button.btn.btn-block.btn-contrast.sidebar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            .sidebar-collapse.collapse
+              .box
+                %h3.title Task Categories
+                .list-group
+                - @task_categories. each do |category|
+                  %a.list-group-item{href: "#"}
+                    %i.fa.fa-angle-right.fa.fa-fixed-width
+                    #{category.name}
+
+        .col-md-pull-3.col-sm-pull-4.col-sm-8.col-md-9
+          .text-boxes
+          - @tasks.each do |task|
+            .row.text-box.text-box-title-above
+              .col-sm-12
+                %h2.title
+                  %a{href: "/blog_single_post.html"} #{task.name}
+                .toolbar
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-arrows
+                    %span Location: #{task.location}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-calendar
+                    %span #{task.time_frame}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-user
+                    %span #{task.user.first_name} #{task.user.last_name}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-dollar
+                    %span Minimum Budget: #{task.minimum_budget}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-dollar
+                    %span Maximum Budget: #{task.maximum_budget}
+                %br
+                .row
+                  .col-sm-3
+                    %a{href: "blog_single_post.html"}
+                      %img.img-responsive.center-block.img-circle{alt: "Cras tempus ligula a tempor adipiscing", height: "130", src: "http://placehold.it/150x170", width: "150"}/
+                  .col-sm-9
+                    %p Faulty power pack that needs to be replaced. Got damaged after a power surge in my apartment.
+                    %a.btn.btn-contrast.btn-bordered.btn-xs{href: "blog_single_post.html"} Read more
+                %hr.hr-half
+          .text-center
+            %ul.pagination
+              %li
+                %a{href: "#"}
+                  %i.fa.fa-angle-left
+              %li.active
+                %a{href: "#"} 1
+              %li
+                %a{href: "#"} 2
+              %li
+                %a{href: "#"} 3
+              %li.disabled
+                %a{href: "#"}
+                  %i.fa.fa-angle-right
+  #scroll-to-top.fade
+    %i.fa.fa-chevron-up
+
+
+-# %h1 Current Available Tasks List
+-# - @tasks.each do |task|
+-#   %ul
+-#     %li= link_to "#{task.name}", task_path(task.id)
+-#     %li Status: #{task.status}
+-#     %li Location: #{task.location}
+-#     %li Time Frame: #{task.time_frame}
+-#     %li Min. Budget: #{task.minimum_budget}
+-#     %li Max. Budget: #{task.maximum_budget}
