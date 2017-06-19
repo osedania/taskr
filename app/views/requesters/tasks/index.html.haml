@@ -94,7 +94,7 @@
             .row.text-box.text-box-title-above
               .col-sm-12
                 %h2.title
-                  %a{href: task_path(task)} #{task.name}
+                  %a{href: task_path(task, {page: 'for_requester'}) } #{task.name}
                 .toolbar
                   %a.btn.btn-link{href: "#"}
                     %i.fa.fa-cog

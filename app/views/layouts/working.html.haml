@@ -1,66 +1,64 @@
-%body
-  #wrapper
-    %header#header
-      .container
-        %a.navbar-brand{href: "index.html"}
-          %img{alt: "Taskr", height: "39", src: "assets/images/logo.svg", width: "117"}/
-        %nav#nav.navbar.navbar-collapsed-sm.navbar-default{role: "navigation"}
-          .navbar-header
-            %button.navbar-toggle{"data-target" => ".navbar-header-collapse", "data-toggle" => "collapse", type: "button"}
-              %span.sr-only Toggle navigation
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-          .collapse.navbar-collapse.navbar-header-collapse
-            %ul.nav.navbar-nav.navbar-right
-              %li.active.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", href: "post_task.html"}
-                  %span
-                    Post new task
-              %li.active.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", href: "current_task.html"}
-                  %span
-                    Current Available Tasks
-              %li.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", href: "index.html"}
-                  %span
-                    Home
-              %li.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", href: "about_us.html"}
-                  %span
-                    About us
-              %li.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown", href: "#"}
-                  %span
-                    Contractor
-                    %i.fa.fa-angle-down
-                %ul.dropdown-menu{role: "menu"}
-                  %li
-                    %a{href: "sign_up.html"} Contractor Sign Up
-                  %li
-                    %a{href: "login.html"} Contractor Log In
-              %li.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown", href: "#"}
-                  %span
-                    Requester
-                    %i.fa.fa-angle-down
-                %ul.dropdown-menu{role: "menu"}
-                  %li
-                    %a{href: "sign_up.html"} Requester Sign Up
-                  %li
-                    %a{href: "login.html"} Requester Log In
-              %li.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", href: "faq.html"}
-                  %span
-                    FAQ
-    #main{role: "main"}
-      #main-content-header
-        .container
-          .row
-            .col-sm-12
-              %h1.title
-                Blog (Single post)
-              %ol.breadcrumb
-                %li
-                  %a{href: "my_task.html"}
-                    Back to my tasks
+.row
+  .col-sm-12
+    %form.form
+      %fieldset.row
+        .col-sm-4.mg-b-md
+          %img.img-responsive.img-rounded.center-block{:alt => "Semper massa", :height => "262", :src => "assets/images/jobcategories4.png", :width => "262"}/
+        .col-sm-7.col-sm-offset-1
+          .form-group
+            %label Task Name
+            %input#input-name.form-control{:type => "text"}/
+          .form-group
+            %label Description
+            %textarea#input-street.form-control{:placeholder => "task description"}
+          .form-group
+            %label Location
+            %input#input-city.form-control{:placeholder => "City placeholder", :type => "text"}/
+          .form-group.no-mg-b
+            %label Time Frame
+            .row
+              .col-sm-6.col-md-6.col-lg-4
+                .input-group
+                  %input#input-company.form-control{:type => "text"}/
+                  %span.input-group-btn
+                    %button.btn.btn-very-light{:type => "button"}
+                      %i.fa.fa-calendar-o.text-dark
+          %br/
+          .form-group
+            %label Task Category
+            %select#input-city.form-control{:placeholder => "Task Category"}
+              %option{:value => "Plumbing"} Plumbing
+              %option{:value => "Computer"} Computer
+              %option{:value => "Electrical"} Electrical
+              %option{:value => "Carpentry"} Carpentry
+      %hr.hr-dashed/
+      %fieldset.row
+        .col-sm-4.mg-b-md
+          .lead
+            %img.img-responsive.img-rounded.center-block{:alt => "Semper massa", :height => "262", :src => "assets/images/jobcategories4.png", :width => "262"}/
+        .col-sm-7.col-sm-offset-1
+          .form-group
+            %label Minimum Budget
+            .row
+              .col-sm-6.col-md-6.col-lg-4
+                .input-group
+                  %span.input-group-addon
+                    $
+                  %input#input-money.form-control.input-lg.text-right{:type => "text"}/
+                  %span.input-group-addon .00
+          .form-group
+            %label Maximum Budget
+            .row
+              .col-sm-6.col-md-6.col-lg-4
+                .input-group
+                  %span.input-group-addon
+                    $
+                  %input#input-money.form-control.input-lg.text-right{:type => "text"}/
+                  %span.input-group-addon .00
+      .form-actions.mg-t-lg
+        .row
+          .col-sm-7.col-sm-offset-5
+            .text-center-xs
+              .btn.btn-contrast.btn-lg
+                %i.fa.fa-save
+                Submit

@@ -62,17 +62,17 @@
                 %li.dropdown
                   = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
                     %span FAQ
-                    
+
     #main{role: "main"}
       #main-content-header
         .container
           .row
             .col-sm-12
               %h1.title
-                Blog (Single post)
+                My Task Details
               %ol.breadcrumb
                 %li
-                  %a{href: "my_task.html"}
+                  %a{ href: tasks_path({type: 'requester'}) }
                     Back to my tasks
       #main-content
         .container
@@ -89,53 +89,39 @@
                 .row.text-box.text-box-title-above.text-box-big-image
                   .col-sm-12
                     %h2.title
-                      %a{href: "/blog_single_post.html"} Cras tempus ligula a tempor adipiscing
+                      %a{href: "#"} #{@task.name}
                     .toolbar
                       %a.btn.btn-link{href: "#"}
+                        %i.fa.fa-arrows
+                        %span Location: #{@task.location}
+                      %a.btn.btn-link{href: "#"}
                         %i.fa.fa-calendar
-                        %span April 14, 2013
+                        %span #{@task.time_frame}
                       %a.btn.btn-link{href: "#"}
                         %i.fa.fa-cog
-                        %span Status: Contracted
+                        %span Status: #{@task.status}
                       %a.btn.btn-link{href: "#"}
                         %i.fa.fa-dollar
-                        %span Minimum Budget:
+                        %span Minimum Budget: #{@task.minimum_budget}
                       %a.btn.btn-link{href: "#"}
                         %i.fa.fa-dollar
-                        %span Maximum Budget:
+                        %span Maximum Budget: #{@task.maximum_budget}
                       %a.btn.btn-link{href: "#"}
                         %i.fa.fa-cubes
-                        %span Category:
+                        %span Category: #{@task_cat.name}
                     %hr.hr-half/
                 .row.text-box
                   .col-sm-12
                     %h2 Description
-                    %p Praesent sed viverra lacus. Aliquam congue porttitor ipsum sed vulputate. Nam lacus nunc, malesuada a massa sed, commodo placerat sem. Fusce rutrum bibendum adipiscing. Donec ac justo et metus vulputate faucibus. Mauris quis massa vel urna gravida vulputate vitae eu metus. Sed in leo sed metus tempus egestas a ac massa. Nunc cursus urna ac molestie cursus. Donec non sapien neque.
+                    %p #{@task.description}
                 .row
                   %hr.hr-half/
                   .row
                     .col-sm-4
-                      %button.btn.btn-contrast{type: "submit"}
-                        Edit Task
+                      %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: edit_task_path(@task)}
+                        Edit task
                     .col-sm-4
-                      %button.btn.btn-contrast{type: "submit"}
-                        Delete Task
+                      %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: task_path(@task), method: :delete }
+                        Delete task
     #scroll-to-top.fade
       %i.fa.fa-chevron-up
-
-
-
-
-
-%div
-  = link_to "Edit task", edit_task_path(@task)
-  = link_to "Delete task", task_path(@task), method: :delete
-  %ul
-    %li Task Name: #{@task.name}
-    %li Status: #{@task.status}
-    %li Description: #{@task.description}
-    %li Location: #{@task.location}
-    %li Time Frame: #{@task.time_frame}
-    %li Minimun budget: #{@task.minimum_budget}
-    %li Maximum budget: #{@task.maximum_budget}
-    %li Category: #{@task_cat.name}
