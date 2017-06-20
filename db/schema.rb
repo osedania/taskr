@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616153531) do
+ActiveRecord::Schema.define(version: 20170620090252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170616153531) do
     t.datetime "updated_at", null: false
     t.bigint "task_id"
     t.bigint "user_id"
+    t.datetime "winning_bid_date"
     t.index ["task_id"], name: "index_bids_on_task_id"
     t.index ["user_id"], name: "index_bids_on_user_id"
   end
@@ -53,8 +54,8 @@ ActiveRecord::Schema.define(version: 20170616153531) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "task_category_id"
-    t.string "slug"
     t.string "status"
+    t.string "slug"
     t.bigint "user_id"
     t.string "time_frame"
     t.index ["slug"], name: "index_tasks_on_slug", unique: true

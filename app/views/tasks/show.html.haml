@@ -6,13 +6,25 @@
 %li Time Frame: #{@task.time_frame}
 %li Min. Budget: #{@task.minimum_budget}
 %li Max. Budget: #{@task.maximum_budget}
-
+%li Requester: #{User.find(@task.user_id).first_name} #{User.find(@task.user_id).last_name}
 
 %h2 Bids:
 %ul
 - @task.bids.each do |bid|
   %li
-    = "#{bid.user.first_name} #{bid.user.last_name}'s Bid: #{bid.quote}"
+    = "#{bid.user.first_name} #{bid.user.last_name}'s Bid: #{bid.quote} "
+    - if current_user.id == @task.user_id  # show link if the current user created the task
+      = link_to "Accept Bid", task_bid_path(params[:id], bid)
+    - if params[:confirm]
+      %p= "You are about to accept the bid from #{bid.user.first_name} #{bid.user.last_name}'s of #{bid.quote}"
+      %p If you are OK, please review terms and condition and check the box before pressing OK.
+      %p Press Cancel to cancel the acceptance of the bid.
+      =form_tag(task_bid_path(params[:id], bid), method: "winning_bid") do
+        = check_box_tag :tos_accept_bid
+        = label :tos_accept_bid, " I have read and agree to the "
+        = link_to "Accept Bid Terms and Conditions", bid_terms_doc_path, target: :_blank
+        = submit_tag "OK"
+        = submit_tag "Cancel"
   %br
 
 %div
