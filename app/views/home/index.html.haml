@@ -94,14 +94,10 @@
                   %p.normal.fadeInLeftBig.animated Over 1000 trusted contractors ready to get your task done
                   %a.btn.btn-contrast.btn-lg.fadeInUpBig.animated{href: tasks_path(type: 'all')}
                     Show more
-%p.alert
-  = alert
-%p.notice
-  = notice
-
 #main-content
   .container
     .row
+      = flash[:notice]
       .col-sm-12
         %h2.text-center What is Taskr?
         %p.lead.lead-lg.text-center.fadeInUpBig.animated An online marketplace for connecting people to request and do everyday jobs and tasks.
@@ -188,5 +184,5 @@
                 %i.fa.fa-search
                 = image_tag ('jobcategories4.png'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
               %h3.title Carpentry
-    #scroll-to-top.fade
-      %i.fa.fa-chevron-up
+  #scroll-to-top.fade
+    %i.fa.fa-chevron-up
