@@ -8,7 +8,7 @@ Feature: Bid for task
   Scenario: I should see bid form
     Given I click on "Current Available Tasks"
     And I click on "Bad mowing machine"
-    Then I should see "Quote:"
+    Then I should see "Quote"
 
   Scenario: As a requester I should NOT see the bid form
     Given I click on "Log Out"
