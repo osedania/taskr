@@ -118,8 +118,8 @@
                     %a{href: "blog_single_post.html"}
                       %img.img-responsive.center-block.img-circle{alt: "Cras tempus ligula a tempor adipiscing", height: "130", src: "http://placehold.it/150x170", width: "150"}/
                   .col-sm-9
-                    %p Faulty power pack that needs to be replaced. Got damaged after a power surge in my apartment.
-                    %a.btn.btn-contrast.btn-bordered.btn-xs{href: "blog_single_post.html"} Read more
+                    %p #{task.description}.
+                    %a.btn.btn-contrast.btn-bordered.btn-xs{ href: task_path(task, {page: 'for_requester'}) } Read more
                 %hr.hr-half
           .text-center
             %ul.pagination
