@@ -73,69 +73,66 @@
             New Task
         .row
           .col-sm-12
-            %form.form
-              %fieldset.row
-                .col-sm-4.mg-b-md
-                  = image_tag ('jobcategories4.png'), class:'img-responsive img-rounded center-block', height: '262', width: '262'
-                = form_for @task do |f|
-                  - if @task.errors.any?
-                    - @task.errors.full_messages.each do |message|
-                      = message
-                  = flash[:notice]
-                  .col-sm-7.col-sm-offset-1
-                    .form-group
-                      %label
-                        = f.label :name, 'Task Name'
-                        = f.text_field :name, autofocus: true, required: true, class:'form-control', id:'input-name'
-                    .form-group
-                      %label
-                        = f.label :description, 'Description'
-                        = f.text_area :description, required: true, class:'form-control', id:'input-street', placeholder:'task description', style: 'width: 600px; height: 100px'
-                    .form-group
-                      %label
-                        = f.label :location, 'Location'
-                        = f.text_field :location, class: 'form-control', id:'input-city', placeholder:'Location', style: 'width: 400px'
-                    .form-group.no-mg-b
-                      %label
-                        = f.label :time_frame, 'Time Frame'
-                      .row
-                        .col-sm-6.col-md-6.col-lg-4
-                          .input-group
-                            = f.text_field :time_frame, class: 'form-control', id: 'input-company'
-                            %span.input-group-btn
-                              %button.btn.btn-very-light{:type => "button"}
-                                %i.fa.fa-calendar-o.text-dark
-                    %br/
-                    .form-group
-                      %label
-                        = f.label :task_category_id, 'Task Category'
-                        %br
-                        = f.collection_select(:task_category_id, @task_categories, :id, :name, class:'form-control', id:'input-city', style: 'width: 900px')
-                    %hr.hr-dashed
-                    .form-group
-                      %label
-                        = f.label :minimum_budget, 'Minimum Budget'
-                      .row
-                        .col-sm-6.col-md-6.col-lg-4
-                          .input-group
-                            %span.input-group-addon
-                              $
-                            = f.number_field  :minimum_budget, class:'form-control input-lg text-right', id:'input-money'
-                            %span.input-group-addon .00
-                    .form-group
-                      %label
-                        = f.label :maximum_budget, 'Maximum Budget'
-                      .row
-                        .col-sm-6.col-md-6.col-lg-4
-                          .input-group
-                            %span.input-group-addon
-                              $
-                            = f.number_field  :maximum_budget, class:'form-control input-lg text-right', id:'input-money'
-                            %span.input-group-addon .00
-                    .form-actions.mg-t-lg
-                      .row
-                        .col-sm-7.col-sm-offset-5
-                          .text-center-xs
-                            .btn.btn-contrast.btn-lg
-                              %i.fa.fa-save
-                              = f.submit 'Submit', class:'btn btn-contrast'
+            .col-sm-4.mg-b-md
+              = image_tag ('jobcategories4.png'), class:'img-responsive img-rounded center-block', height: '262', width: '262'
+            = form_for @task do |f|
+              - if @task.errors.any?
+                - @task.errors.full_messages.each do |message|
+                  = message
+              = flash[:notice]
+              .col-sm-7.col-sm-offset-1
+                .form-group
+                  %label
+                    = f.label :name, 'Task Name'
+                    = f.text_field :name, autofocus: true, required: true, class:'form-control', id:'input-name'
+                .form-group
+                  %label
+                    = f.label :description, 'Description'
+                    = f.text_area :description, required: true, class:'form-control', id:'input-street', placeholder:'task description', style: 'width: 600px; height: 100px'
+                .form-group
+                  %label
+                    = f.label :location, 'Location'
+                    = f.text_field :location, class: 'form-control', id:'input-city', placeholder:'Location', style: 'width: 400px'
+                .form-group.no-mg-b
+                  %label
+                    = f.label :time_frame, 'Time Frame'
+                  .row
+                    .col-sm-6.col-md-6.col-lg-4
+                      .input-group
+                        = f.text_field :time_frame, class: 'form-control', id: 'input-company'
+                        %span.input-group-btn
+                          %button.btn.btn-very-light{:type => "button"}
+                            %i.fa.fa-calendar-o.text-dark
+                %br/
+                .form-group
+                  %label
+                    = f.label :task_category_id, 'Task Category'
+                    %br
+                    = f.collection_select(:task_category_id, @task_categories, :id, :name, class:'form-control', id:'input-city', style: 'width: 900px')
+                %hr.hr-dashed
+                .form-group
+                  %label
+                    = f.label :minimum_budget, 'Minimum Budget'
+                  .row
+                    .col-sm-6.col-md-6.col-lg-4
+                      .input-group
+                        %span.input-group-addon
+                          $
+                        = f.number_field  :minimum_budget, class:'form-control input-lg text-right', id:'input-money'
+                        %span.input-group-addon .00
+                .form-group
+                  %label
+                    = f.label :maximum_budget, 'Maximum Budget'
+                  .row
+                    .col-sm-6.col-md-6.col-lg-4
+                      .input-group
+                        %span.input-group-addon
+                          $
+                        = f.number_field  :maximum_budget, class:'form-control input-lg text-right', id:'input-money'
+                        %span.input-group-addon .00
+                .form-actions.mg-t-lg
+                  .row
+                    .text-center-xs
+                      .btn.btn-contrast.btn-lg
+                        %i.fa.fa-save
+                        = f.submit 'Submit', class:'btn btn-contrast'

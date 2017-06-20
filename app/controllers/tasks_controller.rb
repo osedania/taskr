@@ -69,6 +69,7 @@ class TasksController < ApplicationController
       render action: '../requesters/tasks/show'
     else
       @task = Task.find(params[:id])
+      @task_cat = @task.task_category
       @bid = Bid.new
     end
   end

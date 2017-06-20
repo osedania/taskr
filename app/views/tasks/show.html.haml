@@ -1,12 +1,130 @@
-%h1 Task Details
-%li Task: #{@task.name}
-%li Status: #{@task.status}
-%li Description: #{@task.description}
-%li Location: #{@task.location}
-%li Time Frame: #{@task.time_frame}
-%li Min. Budget: #{@task.minimum_budget}
-%li Max. Budget: #{@task.maximum_budget}
+%body
+  #wrapper
+    %header#header
+      .container
+        = link_to (image_tag('logo.svg')), root_path, class: 'navbar-brand', width:"117", height:"39"
+        %nav#nav.navbar.navbar-collapsed-sm.navbar-default{role: "navigation"}
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-header-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+          .collapse.navbar-collapse.navbar-header-collapse
+            %ul.nav.navbar-nav.navbar-right
+              %li.active.dropdown
+                = link_to  new_task_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Post new task
+              %li.dropdown
+                = link_to  tasks_path( {type: 'all'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Current Available Tasks
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Home
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span About us
+              - if user_signed_in? && current_user.contractor?
+                %li.dropdown
+                  = link_to  edit_user_registration_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span My Profile
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - elsif user_signed_in? && current_user.requester?
+                %li.dropdown
+                  = link_to  tasks_path({type: 'requester'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span View My Tasks
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - else
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Contractor
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Contractor Sign Up', new_user_registration_path({ role: "contractor" })
+                    %li
+                      = link_to 'Contractor Log In', new_user_session_path
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Requester
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
+                    %li
+                      = link_to 'Requester Log In', new_user_session_path
+                %li.dropdown
+                  = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span FAQ
 
+    #main{role: "main"}
+      #main-content-header
+        .container
+          .row
+            .col-sm-12
+              %h1.title
+                Task Bids
+              %ol.breadcrumb
+                %li
+                  %a{ href: tasks_path({type: 'all'}) }
+                    Back to all tasks
+      #main-content
+        .container
+          .row
+            .col-md-push-9.col-sm-push-8.col-sm-4.col-md-3
+              %nav.sidebar
+                %button.btn.btn-block.btn-contrast.sidebar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", type: "button"}
+                  %span.sr-only Toggle navigation
+                  %span.icon-bar
+                  %span.icon-bar
+                  %span.icon-bar
+            .col-md-pull-3.col-sm-pull-4.col-sm-8.col-md-9
+              .text-boxes
+                .row.text-box.text-box-title-above.text-box-big-image
+                  .col-sm-12
+                    %h2.title
+                      %a{href: "#"} #{@task.name}
+                    .toolbar
+                      %a.btn.btn-link{href: "#"}
+                        %i.fa.fa-arrows
+                        %span Location: #{@task.location}
+                      %a.btn.btn-link{href: "#"}
+                        %i.fa.fa-calendar
+                        %span #{@task.time_frame}
+                      %a.btn.btn-link{href: "#"}
+                        %i.fa.fa-cog
+                        %span Status: #{@task.status}
+                      %a.btn.btn-link{href: "#"}
+                        %i.fa.fa-dollar
+                        %span Minimum Budget: #{@task.minimum_budget}
+                      %a.btn.btn-link{href: "#"}
+                        %i.fa.fa-dollar
+                        %span Maximum Budget: #{@task.maximum_budget}
+                      %a.btn.btn-link{href: "#"}
+                        %i.fa.fa-cubes
+                        %span Category: #{@task_cat.name}
+                    %hr.hr-half/
+                .row.text-box
+                  .col-sm-12
+                    %h2 Description
+                    %p #{@task.description}
+                .row
+                  %hr.hr-half/
+                  .row
+                    .col-sm-4
+                      %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: edit_task_path(@task)}
+                        Edit task
+                    .col-sm-4
+                      %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: task_path(@task), method: :delete }
+                        Delete task
+    #scroll-to-top.fade
+      %i.fa.fa-chevron-up
 
 %h2 Bids:
 %ul
