@@ -15,7 +15,7 @@ class TasksController < ApplicationController
       redirect_to task_path(@task)
       flash[:notice] = 'Task was successfully posted!'
     else
-      render 'new'
+      # render 'new'
     end
   end
 
