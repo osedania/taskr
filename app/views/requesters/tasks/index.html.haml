@@ -70,6 +70,7 @@
         .col-sm-12
           %h1.title
             My Tasks
+            =flash[:notice]
   #main-content
     .container
       .row
@@ -84,7 +85,7 @@
               .box
                 %h3.title Task Categories
                 .list-group
-                - @task_categories. each do |category|
+                - @task_categories.each do |category|
                   %a.list-group-item{href: "#"}
                     %i.fa.fa-angle-right.fa.fa-fixed-width
                     #{category.name}

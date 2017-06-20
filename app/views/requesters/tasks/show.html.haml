@@ -122,8 +122,7 @@
                       %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: edit_task_path(@task)}
                         Edit task
                     .col-sm-4
-                      %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: task_path(@task), method: :delete }
-                        Delete task
+                      = link_to 'Delete task', task_path(@task), method: :delete, class:'btn btn-contrast btn-lg fadeInDownBig animated'
                   %hr.hr-half/
                   .row
                     .col-sm-12

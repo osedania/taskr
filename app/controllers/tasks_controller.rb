@@ -55,6 +55,7 @@ class TasksController < ApplicationController
     if @task.user == current_user
       @task.destroy
       assign_tasks_and_task_category
+      @task_categories = TaskCategory.all
       flash[:notice] = "Task Deleted!"
       render action: '../requesters/tasks/index'
     else
