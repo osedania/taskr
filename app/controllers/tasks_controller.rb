@@ -86,7 +86,8 @@ class TasksController < ApplicationController
                  :country,
                  :task_category_id,
                  :requester_id,
-                 :time_frame)
+                 :time_frame,
+                 :task_image)
   end
 
   def check_for_user

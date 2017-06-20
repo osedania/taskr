@@ -31,5 +31,6 @@ And(/^start debugger$/) do
 end
 
 Given(/^I check "([^"]*)" checkbox$/) do |checkbox|
-  page.find('input[type=checkbox]').set(true)
+  # page.find('input[type=checkbox]').set(true)
+  check checkbox
 end
