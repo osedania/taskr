@@ -96,6 +96,9 @@
                 %h2.title
                   %a{href: task_path(task, {page: 'for_requester'}) } #{task.name}
                 .toolbar
+                %a.btn.btn-link{href: "#"}
+                  %i.fa.fa-cog
+                  %span Status: #{task.status}
                   %a.btn.btn-link{href: "#"}
                     %i.fa.fa-cog
                     %span Status: #{task.status}

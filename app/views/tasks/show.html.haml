@@ -74,7 +74,7 @@
                 %li
                   %a{ href: tasks_path({type: 'all'}) }
                     Back to all tasks
-        = flash[:notice]            
+        = flash[:notice]
         #main-content
           .container
             .row
@@ -160,7 +160,7 @@
                                               %span.input-group-addon .00
                                       %label.checkbox-inline
                                         = f.check_box :terms_of_service, id:'nput-inlineCheckbox2', value:'option2'
-                                        = f.label :terms_of_service, "I have read and agree to the "
+                                        = f.label :terms_of_service, "I have read and agree to the"
                                         %a{href: bid_terms_doc_path, target: :_blank} Bidding Terms and Conditions
                                       %hr/
                                       .row
