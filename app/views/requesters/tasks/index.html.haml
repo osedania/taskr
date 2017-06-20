@@ -4,6 +4,7 @@
       %li
         = link_to task.name, task_path(task, {page: 'for_requester'})
         %ul
+          %li= image_tag task.task_image.url(:small)
           %li Status: #{task.status}
           %li Task Description: #{task.description}
           %li Time Frame: #{task.time_frame}

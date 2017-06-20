@@ -2,8 +2,11 @@
 - @tasks.each do |task|
   %ul
     %li= link_to "#{task.name}", task_path(task.id)
+    %li= image_tag task.task_image.url(:small)
     %li Status: #{task.status}
+    %li Requester: #{User.find(task.user_id).first_name} #{User.find(task.user_id).last_name}
     %li Location: #{task.location}
+    %li Description: #{task.description}
     %li Time Frame: #{task.time_frame}
     %li Min. Budget: #{task.minimum_budget}
     %li Max. Budget: #{task.maximum_budget}

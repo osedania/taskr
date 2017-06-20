@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
 
   get '/bid_terms', to: 'bids#bid_terms_doc', as: 'bid_terms_doc'
+  post '/winning_bid', to: 'bids#winning_bid', as: 'winning_bid'
 end

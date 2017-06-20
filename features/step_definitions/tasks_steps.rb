@@ -3,7 +3,7 @@ Given(/^there are two reqesters having several tasks each belonging to some cate
     Given the following requester accounts exist
       | email             | first_name | last_name | password | password_confirmation |role       |
       | requester1@r.com  | Re         | Quester   | 12345678 | 12345678              |requester  |
-      | requester2@r.com  | Re         | Quester   | 12345678 | 12345678              |requester  |
+      | requester2@r.com  | James      | Bond      | 12345678 | 12345678              |requester  |
 
     Given the task categories exist
       | name                |

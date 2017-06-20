@@ -4,6 +4,8 @@ RSpec.describe Bid, type: :model do
   describe 'DB table Bid' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :quote }
+    it { is_expected.to have_db_column :winning_bid }
+    it { is_expected.to have_db_column :winning_bid_date }
   end
 
   describe 'Validations' do

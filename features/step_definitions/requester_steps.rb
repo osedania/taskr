@@ -4,7 +4,7 @@ Given(/^I log in as requester "([^"]*)" with password "([^"]*)"$/) do |email, pa
     And I click on "Requester Log In"
     And I fill in field "Email" with "#{email}"
     And I fill in field "Password" with "#{password}"
-    And I click on "Log In"
+    And I click on "Sign In"
   }
 end
 #
