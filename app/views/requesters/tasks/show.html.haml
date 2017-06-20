@@ -88,6 +88,7 @@
               .text-boxes
                 .row.text-box.text-box-title-above.text-box-big-image
                   .col-sm-12
+                    = flash[:notice]
                     %h2.title
                       %a{href: "#"} #{@task.name}
                     .toolbar
@@ -96,7 +97,7 @@
                         %span Location: #{@task.location}
                       %a.btn.btn-link{href: "#"}
                         %i.fa.fa-calendar
-                        %span #{@task.time_frame}
+                        %span Time Frame: #{@task.time_frame}
                       %a.btn.btn-link{href: "#"}
                         %i.fa.fa-cog
                         %span Status: #{@task.status}

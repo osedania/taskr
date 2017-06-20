@@ -21,12 +21,12 @@ Feature: Edit & Delete Task
     And I fill in field "Time Frame:" with "When you have the time"
     And I click on "Submit"
     Then I should see "Task Updated!"
-    And I should see "Task Name: Broken computer"
-    And I should see "Description: faulty powerpack"
+    And I should see "Broken computer"
+    And I should see "faulty powerpack"
     And I should see "Location: Gothenbourg"
     And I should see "Time Frame: When you have the time"
-    And I should see "Minimun budget: 500"
-    And I should see "Maximum budget: 700"
+    And I should see "Minimum Budget: 500"
+    And I should see "Maximum Budget: 700"
     And I should see "Category: Computer"
 
   Scenario: Delete a task
