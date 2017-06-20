@@ -11,7 +11,7 @@ Feature: Browse open task requests
     Given I click on "Current Available Tasks"
     Then I should see "Current Available Tasks List"
     And I should see "Bad mowing machine"
-    And I should not see "pipe in kitchen broken"
+    And I should see "pipe in kitchen broken"
     And I should see "Stockholm, Sweden"
     And I should see "70"
 
