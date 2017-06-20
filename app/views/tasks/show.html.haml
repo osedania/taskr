@@ -1,4 +1,5 @@
 %h1 Task Details
+%li= image_tag @task.task_image.url(:medium)
 %li Task: #{@task.name}
 %li Status: #{@task.status}
 %li Description: #{@task.description}
@@ -27,7 +28,7 @@
         = submit_tag "Cancel"
   %br
 
-  
+
 - if current_user != nil
   - if current_user.role == "contractor"
     %div

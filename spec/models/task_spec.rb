@@ -9,13 +9,17 @@ RSpec.describe Task, type: :model do
       it { is_expected.to have_db_column :maximum_budget }
       it { is_expected.to have_db_column :task_category_id }
       it { is_expected.to have_db_column :time_frame }
+      it { is_expected.to have_db_column :task_image_file_name }
+      it { is_expected.to have_db_column :task_image_content_type }
+      it { is_expected.to have_db_column :task_image_file_size }
+      it { is_expected.to have_db_column :task_image_updated_at }
     end
 
     describe 'Validations' do
      it { is_expected.to validate_presence_of :name }
      it { is_expected.to validate_presence_of :description }
      it { is_expected.to validate_presence_of :location }
-     it { is_expected.to validate_presence_of :time_frame }     
+     it { is_expected.to validate_presence_of :time_frame }
    end
 
    describe 'Associations' do
