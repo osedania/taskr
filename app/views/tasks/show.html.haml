@@ -177,7 +177,7 @@
   %li
     = "#{bid.user.first_name} #{bid.user.last_name}'s Bid: #{bid.quote} "
     - if current_user.id == @task.user_id  # show link if the current user created the task
-      = link_to "Accept Bid", task_bid_path(params[:id], bid)
+      = link_to "", task_bid_path(params[:id], bid)
     - if params[:confirm]
       %p= "You are about to accept the bid from #{bid.user.first_name} #{bid.user.last_name}'s of #{bid.quote}"
       %p If you are OK, please review terms and condition and check the box before pressing OK.
