@@ -6,7 +6,6 @@ Feature: Register account for requester
   Scenario:
     Given I am on the landing page
     And I click on "Requester Sign Up"
-    Then I should see "Registration Form"
     And I fill in field "Email" with "requester@ab.com"
     And I fill in field "First Name" with "John"
     And I fill in field "Last Name" with "Doe"
