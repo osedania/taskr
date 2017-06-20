@@ -17,13 +17,15 @@
                 = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
                   %span Home
               %li.dropdown
-                %a.dropdown-toggle{"data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown", :href => "#"}
+                = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
                   %span
                     Contractor
                     %i.fa.fa-angle-down
                 %ul.dropdown-menu{:role => "menu"}
                   %li
-                    %a{:href => "portfolio_three_cols.html"} Contractor Log In
+                    = link_to 'Contractor Sign Up', new_user_registration_path({ role: "contractor" })
+                  %li
+                    = link_to 'Contractor Log In', new_user_session_path
               %li.dropdown
                 %a.dropdown-toggle{"data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown", :href => "#"}
                   %span
@@ -31,9 +33,9 @@
                     %i.fa.fa-angle-down
                 %ul.dropdown-menu{:role => "menu"}
                   %li
-                    %a{:href => "contact.html"} Requester Sign Up
+                    = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
                   %li
-                    %a{:href => "contact2.html"} Requester Log In
+                    = link_to 'Requester Log In', new_user_session_path
     .signup_body
       .user
         %header.user__header
