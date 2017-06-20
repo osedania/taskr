@@ -74,98 +74,99 @@
                 %li
                   %a{ href: tasks_path({type: 'all'}) }
                     Back to all tasks
-      #main-content
-        .container
-          .row
-            .col-md-push-9.col-sm-push-8.col-sm-4.col-md-3
-              %nav.sidebar
-                %button.btn.btn-block.btn-contrast.sidebar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", type: "button"}
-                  %span.sr-only Toggle navigation
-                  %span.icon-bar
-                  %span.icon-bar
-                  %span.icon-bar
-            .col-md-pull-3.col-sm-pull-4.col-sm-8.col-md-9
-              .text-boxes
-                .row.text-box.text-box-title-above.text-box-big-image
-                  .col-sm-12
-                    %h2.title
-                      %a{href: "#"} #{@task.name}
-                    .toolbar
-                      %a.btn.btn-link{href: "#"}
-                        %i.fa.fa-arrows
-                        %span Location: #{@task.location}
-                      %a.btn.btn-link{href: "#"}
-                        %i.fa.fa-calendar
-                        %span #{@task.time_frame}
-                      %a.btn.btn-link{href: "#"}
-                        %i.fa.fa-cog
-                        %span Status: #{@task.status}
-                      %a.btn.btn-link{href: "#"}
-                        %i.fa.fa-dollar
-                        %span Minimum Budget: #{@task.minimum_budget}
-                      %a.btn.btn-link{href: "#"}
-                        %i.fa.fa-dollar
-                        %span Maximum Budget: #{@task.maximum_budget}
-                      %a.btn.btn-link{href: "#"}
-                        %i.fa.fa-cubes
-                        %span Category: #{@task_cat.name}
-                      %a.btn.btn-link{href: "#"}
-                        %i.fa.fa-cubes
-                        %span Requester :  #{@task.user.first_name} #{@task.user.last_name}
-                    %hr.hr-half/
-                .row.text-box
-                  .col-sm-12
-                    %h2 Description
-                    %p #{@task.description}
-                    %hr.hr-half/
-                    .row
-                      .col-sm-12
-                        .row
-                          #comments.col-sm-12
-                            %h3
-                              Bids:
-                            - @task.bids.each do |bid|
-                              .media
-                                .pull-left
-                                  .media-object.without-image
-                                .media-body
-                                  .content
-                                    .toolbar
-                                      %h4.title "#{bid.user.first_name} #{bid.user.last_name}"
-                                      - if current_user.id == @task.user_id
-                                        %a.btn.btn-link.link-contrast.btn-sm{ href:  task_bid_path(params[:id], bid)}
-                                          %i.fa.fa-reply
-                                          %span Accept Bid
-                                    %p $ #{bid.quote}
-                                    %p.time
-                                      %a{:href => "#"} #{bid.created_at}
-                            .row
-                              %hr.hr-half/
-                              #add-new-comment.col-sm-12
-                                - if current_user && current_user.role == "contractor"
-                                  %h3 New Bid
-                                  = form_for([@task, @bid]) do |f|
-                                    - if @bid.errors.any?
-                                      - @bid.errors.full_messages.each do |message|
-                                        = message
-                                    .form-group
-                                      %label Quote
+        = flash[:notice]            
+        #main-content
+          .container
+            .row
+              .col-md-push-9.col-sm-push-8.col-sm-4.col-md-3
+                %nav.sidebar
+                  %button.btn.btn-block.btn-contrast.sidebar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", type: "button"}
+                    %span.sr-only Toggle navigation
+                    %span.icon-bar
+                    %span.icon-bar
+                    %span.icon-bar
+              .col-md-pull-3.col-sm-pull-4.col-sm-8.col-md-9
+                .text-boxes
+                  .row.text-box.text-box-title-above.text-box-big-image
+                    .col-sm-12
+                      %h3.title
+                        %a{href: "#"} #{@task.name}
+                      .toolbar
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-arrows
+                          %span Location: #{@task.location}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-calendar
+                          %span #{@task.time_frame}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-cog
+                          %span Status: #{@task.status}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-dollar
+                          %span Minimum Budget: #{@task.minimum_budget}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-dollar
+                          %span Maximum Budget: #{@task.maximum_budget}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-cubes
+                          %span Category: #{@task_cat.name}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-cubes
+                          %span Requester :  #{@task.user.first_name} #{@task.user.last_name}
+                      %hr.hr-half/
+                  .row.text-box
+                    .col-sm-12
+                      %h2 Description
+                      %p #{@task.description}
+                      %hr.hr-half/
+                      .row
+                        .col-sm-12
+                          .row
+                            #comments.col-sm-12
+                              %h3
+                                Bids:
+                              - @task.bids.each do |bid|
+                                .media
+                                  .pull-left
+                                    .media-object.without-image
+                                  .media-body
+                                    .content
+                                      .toolbar
+                                        %h4.title "#{bid.user.first_name} #{bid.user.last_name}"
+                                        - if current_user.id == @task.user_id
+                                          %a.btn.btn-link.link-contrast.btn-sm{ href:  task_bid_path(params[:id], bid)}
+                                            %i.fa.fa-reply
+                                            %span Accept Bid
+                                      %p $ #{bid.quote}
+                                      %p.time
+                                        %a{:href => "#"} #{bid.created_at}
+                              .row
+                                %hr.hr-half/
+                                #add-new-comment.col-sm-12
+                                  - if current_user && current_user.role == "contractor"
+                                    %h3 New Bid
+                                    = form_for([@task, @bid]) do |f|
+                                      - if @bid.errors.any?
+                                        - @bid.errors.full_messages.each do |message|
+                                          = message
+                                      .form-group
+                                        %label Quote
+                                        .row
+                                          .col-sm-6.col-md-6.col-lg-4
+                                            .input-group
+                                              %span.input-group-addon
+                                                $
+                                              = f.number_field :quote, class:'form-control input-lg text-right', id:'input-money', placeholder: 'Quote'
+                                              %span.input-group-addon .00
+                                      %label.checkbox-inline
+                                        = f.check_box :terms_of_service, id:'nput-inlineCheckbox2', value:'option2'
+                                        = f.label :terms_of_service, "I have read and agree to the "
+                                        %a{href: bid_terms_doc_path, target: :_blank} Bidding Terms and Conditions
+                                      %hr/
                                       .row
-                                        .col-sm-6.col-md-6.col-lg-4
-                                          .input-group
-                                            %span.input-group-addon
-                                              $
-                                            = f.number_field :quote, class:'form-control input-lg text-right', id:'input-money', placeholder: 'Quote'
-                                            %span.input-group-addon .00
-                                    %label.checkbox-inline
-                                      = f.check_box :terms_of_service, id:'nput-inlineCheckbox2', value:'option2'
-                                      = f.label :terms_of_service, "I have read and agree to the "
-                                      %a{href: bid_terms_doc_path, target: :_blank} Bidding Terms and Conditions
-                                    %hr/
-                                    .row
-                                      .col-sm-12
-                                        .actions
-                                          = f.submit "Make Offer", class:'btn btn-contrast'
+                                        .col-sm-12
+                                          .actions
+                                            = f.submit "Make Offer", class:'btn btn-contrast'
                     #scroll-to-top.fade
                       %i.fa.fa-chevron-up
 

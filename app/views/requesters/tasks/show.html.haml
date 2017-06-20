@@ -123,11 +123,30 @@
                     .col-sm-4
                       %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: task_path(@task), method: :delete }
                         Delete task
+                  %hr.hr-half/
+                  .row
+                    .col-sm-12
+                      .row
+                        #comments.col-sm-12
+                          %h3
+                            Bids:
+                          - @task.bids.each do |bid|
+                            .media
+                              .pull-left
+                                .media-object.without-image
+                              .media-body
+                                .content
+                                  .toolbar
+                                    %h4.title "#{bid.user.first_name} #{bid.user.last_name}"
+                                    - if current_user.id == @task.user_id
+                                      %a.btn.btn-link.link-contrast.btn-sm{ href:  task_bid_path(params[:id], bid)}
+                                        %i.fa.fa-reply
+                                        %span Accept Bid
+                                  %p $ #{bid.quote}
+                                  %p.time
+                                    %a{:href => "#"} #{bid.created_at}
     #scroll-to-top.fade
       %i.fa.fa-chevron-up
-
-  = link_to "Edit task", edit_task_path(@task)
-  = link_to "Delete task", task_path(@task), method: :delete
 
 
 %h2 Bids:

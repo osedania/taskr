@@ -9,7 +9,7 @@ Feature: Browse open task requests
 
   Scenario: View list of all task requests
     Given I click on "Current Available Tasks"
-    Then I should see "Current Available Tasks List"
+    Then I should see "Current Available Tasks"
     And I should see "Bad mowing machine"
     And I should see "pipe in kitchen broken"
     And I should see "Stockholm, Sweden"

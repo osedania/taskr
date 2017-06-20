@@ -70,6 +70,7 @@
         .col-sm-12
           %h1.title
             Current Available Tasks
+
   #main-content
     .container
       .row
@@ -98,6 +99,9 @@
                   %a{ href: task_path(task.id) } #{task.name}
                 .toolbar
                   %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-cogs
+                    %span Status: #{task.status}
+                  %a.btn.btn-link{href: "#"}
                     %i.fa.fa-arrows
                     %span Location: #{task.location}
                   %a.btn.btn-link{href: "#"}
@@ -115,11 +119,11 @@
                 %br
                 .row
                   .col-sm-3
-                    %a{href: "blog_single_post.html"}
-                      %img.img-responsive.center-block.img-circle{alt: "Cras tempus ligula a tempor adipiscing", height: "130", src: "http://placehold.it/150x170", width: "150"}/
+                    %a{href: "#" }
+                      %img.img-responsive.center-block.img-circle{height: "130", src: "http://placehold.it/150x170", width: "150"}/
                   .col-sm-9
-                    %p Faulty power pack that needs to be replaced. Got damaged after a power surge in my apartment.
-                    %a.btn.btn-contrast.btn-bordered.btn-xs{href: "blog_single_post.html"} Read more
+                    %p #{task.description}
+                    %a.btn.btn-contrast.btn-bordered.btn-xs{href: task_path(task.id) } Read more
                 %hr.hr-half
           .text-center
             %ul.pagination

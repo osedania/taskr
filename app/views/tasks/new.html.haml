@@ -96,13 +96,13 @@
                 .form-group.no-mg-b
                   %label
                     = f.label :time_frame, 'Time Frame'
-                  .row
-                    .col-sm-6.col-md-6.col-lg-4
-                      .input-group
-                        = f.text_field :time_frame, class: 'form-control', id: 'input-company'
-                        %span.input-group-btn
-                          %button.btn.btn-very-light{:type => "button"}
-                            %i.fa.fa-calendar-o.text-dark
+                    .row
+                      .col-sm-6.col-md-6.col-lg-4
+                        .input-group
+                          = f.text_field :time_frame, class: 'form-control', id: 'input-company'
+                          %span.input-group-btn
+                            %button.btn.btn-very-light{:type => "button"}
+                              %i.fa.fa-calendar-o.text-dark
                 %br/
                 .form-group
                   %label
@@ -113,23 +113,23 @@
                 .form-group
                   %label
                     = f.label :minimum_budget, 'Minimum Budget'
-                  .row
-                    .col-sm-6.col-md-6.col-lg-4
-                      .input-group
-                        %span.input-group-addon
-                          $
-                        = f.number_field  :minimum_budget, class:'form-control input-lg text-right', id:'input-money'
-                        %span.input-group-addon .00
+                    .row
+                      .col-sm-6.col-md-6.col-lg-4
+                        .input-group
+                          %span.input-group-addon
+                            $
+                          = f.number_field  :minimum_budget, class:'form-control input-lg text-right', id:'input-money'
+                          %span.input-group-addon .00
                 .form-group
                   %label
                     = f.label :maximum_budget, 'Maximum Budget'
-                  .row
-                    .col-sm-6.col-md-6.col-lg-4
-                      .input-group
-                        %span.input-group-addon
-                          $
-                        = f.number_field  :maximum_budget, class:'form-control input-lg text-right', id:'input-money'
-                        %span.input-group-addon .00
+                    .row
+                      .col-sm-6.col-md-6.col-lg-4
+                        .input-group
+                          %span.input-group-addon
+                            $
+                          = f.number_field  :maximum_budget, class:'form-control input-lg text-right', id:'input-money'
+                          %span.input-group-addon .00
                 .form-actions.mg-t-lg
                   .row
                     .text-center-xs

@@ -64,6 +64,8 @@
               = f.text_field :last_name, placeholder: 'Last Name', class:'signup_form__input'
             - if params[:role] == "contractor"
               .form__group
+                = f.text_field :company_name, autocomplete: "off", placeholder: 'Company', class:'signup_form__input'
+              .form__group
                 = f.text_field :address, autocomplete: "off", placeholder: 'Address', class:'signup_form__input'
               .form__group
                 = f.text_field :city, placeholder: 'City', class:'signup_form__input'
