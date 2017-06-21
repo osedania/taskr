@@ -143,5 +143,15 @@
                                     = hidden_field_tag 'bid_id', @bid.id
                                     = submit_tag "OK", class:'btn btn-contrast'
                                     = submit_tag "Cancel", class:'btn btn-contrast'
+                            - if @task.status == 'Contracted'
+                              %article
+                                - if flash[:error].present?
+                                  #error_explanation
+                                    %p= flash[:error]
+                                %label You're about to pay #{@bid.quote} $
+                              = form_tag charges_path do
+                                = hidden_field_tag :bid_id, @bid.id
+                                %script.stripe-button{ src: 'https://checkout.stripe.com/checkout.js',
+                                      data: {amount: @bid.quote*100, description: 'Taskr', key: Rails.configuration.stripe[:publishable_key], currency: 'sek'}}
                     #scroll-to-top.fade
                       %i.fa.fa-chevron-up
