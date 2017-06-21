@@ -1,4 +1,188 @@
-%div
-  = link_to 'Post new task', new_task_path
+%body.homepage
+  #wrapper
+    %header#header
+      .container
+        = link_to (image_tag('taskr.png')), root_path, class: 'navbar-brand', width:"117", height:"39"
+        %nav#nav.navbar.navbar-collapsed-sm.navbar-default{role: "navigation"}
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-header-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+          .collapse.navbar-collapse.navbar-header-collapse
+            %ul.nav.navbar-nav.navbar-right
+              %li.active.dropdown
+                = link_to  new_task_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Post new task
+              %li.dropdown
+                = link_to  tasks_path( {type: 'all'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Current Available Tasks
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Home
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span About us
+              - if user_signed_in? && current_user.contractor?
+                %li.dropdown
+                  = link_to  edit_user_registration_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span My Profile
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - elsif user_signed_in? && current_user.requester?
+                %li.dropdown
+                  = link_to  tasks_path({type: 'requester'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span View My Tasks
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - else
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Contractor
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Contractor Sign Up', new_user_registration_path({ role: "contractor" })
+                    %li
+                      = link_to 'Contractor Log In', new_user_session_path
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Requester
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
+                    %li
+                      = link_to 'Requester Log In', new_user_session_path
+                %li.dropdown
+                  = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span FAQ
 
-%p Welcome to Taskr, your HelpHub for Tasks
+    #main{role: "main"}
+      #carousel-example-1.hero-carousel.carousel-blur.carousel-blur-arrows.carousel-blur-pagination.flexslider
+        %ul.slides
+          %li.item
+            .container
+              .row
+                .col-lg-12.animate
+                  %h1.big.fadeInUp.animated
+                    One Stop Job Market Place
+                  %p.normal.fadeInUp.animated Jobs available for different set of skill set
+                  %a.btn.btn-contrast.btn-lg.fadeInRight.animated{href: tasks_path(type: 'all')}
+                    Show more
+          %li.item
+            .container
+              .row
+                .col-lg-12.animate
+                  %h2.big.fadeInLeftBig.animated
+                    Verified Contractors
+                    \&amp;
+                    Guaranteed Pay Out
+                  %p.normal.fadeInRightBig.animated All contractors on Takr are verified contractors
+                  %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: tasks_path(type: 'all')}
+                    Show more
+          %li.item
+            .container
+              .row
+                .col-lg-12.animate
+                  %h2.big.fadeInRightBig.animated Get more done
+                  %p.normal.fadeInLeftBig.animated Over 1000 trusted contractors ready to get your task done
+                  %a.btn.btn-contrast.btn-lg.fadeInUpBig.animated{href: tasks_path(type: 'all')}
+                    Show more
+#main-content
+  .container
+    .row
+      = flash[:notice]
+      .col-sm-12
+        %h2.text-center What is Taskr?
+        %p.lead.lead-lg.text-center.fadeInUpBig.animated An online marketplace for connecting people to request and do everyday jobs and tasks.
+    .panels-wrapper
+      .row.panels
+        .col-sm-4.panel-item
+          %a.panel.panel-image{ href: new_task_path }
+            .panel-icon
+              %i.fa.fa-clock-o.icon
+            .panel-heading
+              = image_tag ('postjob.jpg'), class: 'img-responsive-sm', width:"768", height:"300"
+            .panel-body
+              %h3.panel-title Post your task
+              %p Post the job/task you need done to see bids from various contractors.
+        .col-sm-4.panel-item
+          %a.panel.panel-image{href: "#"}
+            .panel-icon
+              %i.fa.fa-cog.icon
+            .panel-heading
+              = image_tag ('bids.jpg'), class: 'img-responsive-sm', width:"768", height:"300"
+            .panel-body
+              %h3.panel-title Review quotes
+              %p Select preferred bid from several offers made by contractors.
+        .col-sm-4.panel-item
+          %a.panel.panel-image{href: "#"}
+            .panel-icon
+              %i.fa.fa-rocket.icon
+            .panel-heading
+              = image_tag ('execute.jpg'), class: 'img-responsive-sm', width:"768", height:"300"
+            .panel-body
+              %h3.panel-title Execute Task
+              %p Task is executed by contractor and payment released after completion.
+
+    .row
+      .col-sm-12
+        .page-header.page-header-with-icon
+          %i.fa.fa-star
+          %h2 Top features
+        .text-boxes
+          .row.text-box
+            .col-sm-6
+              = image_tag ('electrician.jpg'), class:'img-responsive.center-block', height: "188", width: "340"
+            .col-sm-6
+              %h3.title
+                %a{href: "#"} Verified Contractors
+              %p We protect all customers using Takr by ensuring all contractors are verified and confirmed.
+              %a.btn.btn-contrast.btn-bordered.btn-sm{href: "#"} Read more
+          %hr/
+          .row.text-box
+            .col-sm-6.col-sm-push-6
+              = image_tag ('contractor.png'), class:'img-responsive.center-block', height: "188", width: "340"
+            .col-sm-6.col-sm-pull-6
+              %h3.title
+                %a{href: "#"} Easy to post a new task
+              %p Posting a new task is easy and straight forward. No hassle..
+              %a.btn.btn-contrast.btn-bordered.btn-sm{href: "#"} Read more
+    .row
+      .col-sm-12
+        .page-header.page-header-with-icon
+          %i.fa.fa-suitcase
+          %h2
+            Job Categories
+            %small See some of our popular categories.
+        .row.portfolio-boxes
+          .col-sm-3.col-xs-6.no-mb-t-xs.portfolio-box
+            %a.image-link{href: "#"}
+              %i.fa.fa-search
+              = image_tag ('jobcategories.png'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+            %h3.title Plumbing
+          .col-sm-3.col-xs-6.no-mb-t-xs.portfolio-box
+            %a.image-link{href: "portfolio_detail.html"}
+              %i.fa.fa-link
+              = image_tag ('jobcategories2.jpg'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+            %h3.title Computers
+          .col-sm-3.col-xs-6.portfolio-box
+            %a{href: "portfolio_detail.html"}
+              .image-link
+                %i.fa.fa-search
+                = image_tag ('jobcategories3.jpg'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+              %h3.title Electrical
+          .col-sm-3.col-xs-6.portfolio-box
+            %a{href: "portfolio_detail.html"}
+              .image-link
+                %i.fa.fa-search
+                = image_tag ('jobcategories4.png'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
+              %h3.title Carpentry
+  #scroll-to-top.fade
+    %i.fa.fa-chevron-up

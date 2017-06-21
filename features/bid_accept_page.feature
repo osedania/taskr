@@ -8,8 +8,8 @@ Feature: Requester to accept bid
     And the contractor exists with e-mail "con@a.com" and password "12345678" and is logged in
     And I click on "Current Available Tasks"
     And I click on "Bad mowing machine"
-    And I fill in field "Quote:" with "500"
-    And I check "bid_terms_of_service" checkbox
+    And I fill in field "Quote" with "500"
+    And I check "I have read and agree to the" checkbox
     And I click on "Make Offer"
     And I click on "Log Out"
     And I log in as requester "requester2@r.com" with password "12345678"
@@ -26,8 +26,8 @@ Feature: Requester to accept bid
 
   Scenario: On the bid accept page, cancel the acceptance and go back to the task details page
     Given I click on "Cancel"
-    Then I should see "Task Details"
-    And I should see "Task: Bad mowing machine"
+    Then I should see "Task Bids"
+    And I should see "Bad mowing machine"
 
   Scenario: On bid accept page, do not check box and get message that bid cannot be accepted
     Given I click on "OK"

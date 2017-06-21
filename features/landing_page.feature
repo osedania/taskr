@@ -4,4 +4,4 @@ Feature: As a visitor, user or contractor,
 
 Scenario:
   Given I visit the landing page
-  Then I should see "Welcome to Taskr, your HelpHub for Tasks"
+  Then I should see "An online marketplace for connecting people to request and do everyday jobs and tasks"

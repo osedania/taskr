@@ -8,8 +8,8 @@ Feature: Requester to accept bid
     And the contractor exists with e-mail "con@a.com" and password "12345678" and is logged in
     And I click on "Current Available Tasks"
     And I click on "Bad mowing machine"
-    And I fill in field "Quote:" with "500"
-    And I check "bid_terms_of_service" checkbox
+    And I fill in field "Quote" with "500"
+    And I check "I have read and agree to the" checkbox
     And I click on "Make Offer"
     And I click on "Log Out"
 

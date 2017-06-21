@@ -57,7 +57,7 @@ requesters = User.create(
   }]
 )
 task_categories = TaskCategory.create(
-  [{ name: 'Plumbing' }, { name: 'Electrical' }, { name: 'Computer' }]
+  [{ name: 'Plumbing' }, { name: 'Electrical' }, { name: 'Computer' }, { name: 'Cleaning' }, { name: 'Gardening' }, { name: 'CV Writing' } ]
 )
 
 tasks = Task.create(

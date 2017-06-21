@@ -1,12 +1,143 @@
-%h1 Current Available Tasks List
-- @tasks.each do |task|
-  %ul
-    %li= link_to "#{task.name}", task_path(task.id)
-    %li= image_tag task.task_image.url(:small)
-    %li Status: #{task.status}
-    %li Requester: #{User.find(task.user_id).first_name} #{User.find(task.user_id).last_name}
-    %li Location: #{task.location}
-    %li Description: #{task.description}
-    %li Time Frame: #{task.time_frame}
-    %li Min. Budget: #{task.minimum_budget}
-    %li Max. Budget: #{task.maximum_budget}
+%body
+  #wrapper
+    %header#header
+      .container
+        = link_to (image_tag('taskr.png')), root_path, class: 'navbar-brand', width:"117", height:"39"
+        %nav#nav.navbar.navbar-collapsed-sm.navbar-default{role: "navigation"}
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-header-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+          .collapse.navbar-collapse.navbar-header-collapse
+            %ul.nav.navbar-nav.navbar-right
+              %li.active.dropdown
+                = link_to  new_task_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Post new task
+              %li.dropdown
+                = link_to  tasks_path( {type: 'all'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Current Available Tasks
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Home
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span About us
+              - if user_signed_in? && current_user.contractor?
+                %li.dropdown
+                  = link_to  edit_user_registration_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span My Profile
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - elsif user_signed_in? && current_user.requester?
+                %li.dropdown
+                  = link_to  tasks_path({type: 'requester'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span View My Tasks
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - else
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Contractor
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Contractor Sign Up', new_user_registration_path({ role: "contractor" })
+                    %li
+                      = link_to 'Contractor Log In', new_user_session_path
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Requester
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
+                    %li
+                      = link_to 'Requester Log In', new_user_session_path
+                %li.dropdown
+                  = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span FAQ
+
+#main{role: "main"}
+  #main-content-header
+    .container
+      .row
+        .col-sm-12
+          %h1.title
+            Current Available Tasks
+
+  #main-content
+    .container
+      .row
+        .col-md-push-9.col-sm-push-8.col-sm-4.col-md-3
+          %nav.sidebar
+            %button.btn.btn-block.btn-contrast.sidebar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            .sidebar-collapse.collapse
+              .box
+                %h3.title Task Categories
+                .list-group
+                - @task_categories. each do |category|
+                  %a.list-group-item{href: "#"}
+                    %i.fa.fa-angle-right.fa.fa-fixed-width
+                    #{category.name}
+
+        .col-md-pull-3.col-sm-pull-4.col-sm-8.col-md-9
+          .text-boxes
+          - @tasks.each do |task|
+            .row.text-box.text-box-title-above
+              .col-sm-12
+                %h2.title
+                  %a{ href: task_path(task.id) } #{task.name}
+                .toolbar
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-cogs
+                    %span Requester: #{task.user.first_name} #{task.user.last_name}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-cogs
+                    %span Status: #{task.status}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-arrows
+                    %span Location: #{task.location}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-calendar
+                    %span #{task.time_frame}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-user
+                    %span #{task.user.first_name} #{task.user.last_name}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-dollar
+                    %span Minimum Budget: #{task.minimum_budget}
+                  %a.btn.btn-link{href: "#"}
+                    %i.fa.fa-dollar
+                    %span Maximum Budget: #{task.maximum_budget}
+                %br
+                .row
+                  .col-sm-12
+                    %p #{task.description}
+                    %a.btn.btn-contrast.btn-bordered.btn-xs{href: task_path(task.id) } Read more
+                %hr.hr-half
+          .text-center
+            %ul.pagination
+              %li
+                %a{href: "#"}
+                  %i.fa.fa-angle-left
+              %li.active
+                %a{href: "#"} 1
+              %li
+                %a{href: "#"} 2
+              %li
+                %a{href: "#"} 3
+              %li.disabled
+                %a{href: "#"}
+                  %i.fa.fa-angle-right
+  #scroll-to-top.fade
+    %i.fa.fa-chevron-up
