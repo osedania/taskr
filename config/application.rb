@@ -29,9 +29,6 @@ module Taskr
     generate.helper_specs false
     generate.routing_specs false
     generate.controller_specs false
-
-    config.assets.enabled = true
-    config.assets.paths << Rails.root.join('/app/assets/fonts')
   end
 
   end

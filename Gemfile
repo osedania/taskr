@@ -16,6 +16,9 @@ gem 'rails', '~> 5.1.1'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'font-awesome-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'coveralls', require: false
