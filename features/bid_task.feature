@@ -13,7 +13,8 @@ Feature: Bid for task
     And I fill in field "Quote" with "500"
     And I check "I have read and agree to the" checkbox
     And I click on "Make Offer"
-    Then I should see "Bob Jackson's Bid: 500"
+    Then I should see "Bob Jackson"
+    And I should see "500"
 
   Scenario: When an amount is quoted but ToS isn't checked
     Given I click on "Current Available Tasks"
@@ -44,7 +45,8 @@ Feature: Bid for task
     And I fill in field "Quote" with "100"
     And I check "I have read and agree to the" checkbox
     And I click on "Make Offer"
-    Then I should see "Bob Jackson's Bid: 100"
+    Then I should see "Bob Jackson"
+    And I should see "100"
 
   Scenario: Link to Terms and Conditions
     Given I click on "Current Available Tasks"

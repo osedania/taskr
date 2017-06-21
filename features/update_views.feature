@@ -23,4 +23,5 @@ Feature: Update views
     And I log in as requester "requester2@r.com" with password "12345678"
     And I click on "View My Tasks"
     And I click on "Bad mowing machine"
-    Then I should see "Bob Jackson's Bid: 500"
+    Then I should see "Bob Jackson"
+    And I should see "500"

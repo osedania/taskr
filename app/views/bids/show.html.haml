@@ -74,7 +74,7 @@
                 %li
                   %a{ href: tasks_path({type: 'all'}) }
                     Back to all tasks
-        = flash[:notice]
+  
         #main-content
           .container
             .row
@@ -90,7 +90,7 @@
                   .row.text-box.text-box-title-above.text-box-big-image
                     .col-sm-12
                       %h3.title
-                        = notice
+                        = flash[:notice]
                         %a{href: "#"} #{@task.name}
                       %br/
                       .toolbar
