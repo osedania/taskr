@@ -67,6 +67,12 @@ class TasksController < ApplicationController
     if params[:page] == 'for_requester' && current_user.requester?
       @task = Task.find(params[:id])
       @task_cat = @task.task_category
+      @task.bids.each do |bid|
+        if bid.winning_bid == 1
+          @winning_bid = bid
+          @winning_contractor = User.find(@winning_bid.user_id)
+        end
+      end
       render action: '../requesters/tasks/show'
     else
       @task = Task.find(params[:id])
