@@ -1,4 +1,5 @@
 class BidsController < ApplicationController
+  
   def create
     @task = Task.find(params[:task_id])
     if Bid.where(user: current_user).where(task: @task).exists?

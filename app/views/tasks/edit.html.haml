@@ -1,39 +1,138 @@
-%h2 Edit task
-= form_for @task do |f|
-  - if @task.errors.any?
-    - @task.errors.full_messages.each do |message|
-      = message
-  .field
-    = f.label :name, "Task Name"
-    %br/
-    = f.text_field :name, autofocus: true, required: true
-  .field
-    = f.label :description, "Description"
-    %br/
-    = f.text_area :description, required: true
-  .field
-    = f.label :location, "Location"
-    %br/
-    = f.text_field :location, required: true
-  .field
-    = f.label :time_frame, "Time Frame:"
-    %br/
-    = f.text_field :time_frame, required: true
-  .field
-    = f.label :task_category_id, "Task Category"
-    %br/
-    = f.collection_select(:task_category_id, @task_categories, :id, :name)
-  .field
-    = f.label :minimum_budget, "Minimum Budget:"
-    %br/
-    = f.number_field :minimum_budget
-  .field
-    = f.label :maximum_budget, "Maximum Budget:"
-    %br/
-    = f.number_field :maximum_budget
-  .field
-    = f.file_field :task_image
-  .actions
-    = f.submit "Submit"
-    %p
-      = flash[:notice]
+%body
+  #wrapper
+    %header#header
+      .container
+        = link_to (image_tag('taskr.png')), root_path, class: 'navbar-brand', width:"117", height:"39"
+        %nav#nav.navbar.navbar-collapsed-sm.navbar-default{role: "navigation"}
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-header-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+          .collapse.navbar-collapse.navbar-header-collapse
+            %ul.nav.navbar-nav.navbar-right
+              %li.active.dropdown
+                = link_to  new_task_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Post new task
+              %li.dropdown
+                = link_to  tasks_path( {type: 'all'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Current Available Tasks
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span Home
+              %li.dropdown
+                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                  %span About us
+              - if user_signed_in? && current_user.contractor?
+                %li.dropdown
+                  = link_to  edit_user_registration_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span My Profile
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - elsif user_signed_in? && current_user.requester?
+                %li.dropdown
+                  = link_to  tasks_path({type: 'requester'}), class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span View My Tasks
+                %li.dropdown
+                  = link_to  destroy_user_session_path, method: :delete, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span Log Out
+              - else
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Contractor
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Contractor Sign Up', new_user_registration_path({ role: "contractor" })
+                    %li
+                      = link_to 'Contractor Log In', new_user_session_path
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', "data-delay" => "50", "data-hover" => "dropdown", "data-toggle" => "dropdown" do
+                    %span
+                      Requester
+                      %i.fa.fa-angle-down
+                  %ul.dropdown-menu{role: "menu"}
+                    %li
+                      = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
+                    %li
+                      = link_to 'Requester Log In', new_user_session_path
+                %li.dropdown
+                  = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
+                    %span FAQ
+
+#main-content
+  .container
+    .row
+      .col-sm-12
+        .page-header.page-header-with-icon.no-mg-t
+          %i.fa.fa-code-fork
+          %h2
+            Edit Task
+        .row
+          .col-sm-12
+            .col-sm-4.mg-b-md
+              = image_tag ('jobcategories4.png'), class:'img-responsive img-rounded center-block', height: '262', width: '262'
+            = form_for @task do |f|
+              - if @task.errors.any?
+                - @task.errors.full_messages.each do |message|
+                  = message
+              = flash[:notice]
+              .col-sm-7.col-sm-offset-1
+                .form-group
+                  %label
+                    = f.label :name, 'Task Name'
+                    = f.text_field :name, autofocus: true, required: true, class:'form-control', id:'input-name'
+                .form-group
+                  %label
+                    = f.label :description, 'Description'
+                    = f.text_area :description, required: true, class:'form-control', id:'input-street', placeholder:'task description', style: 'width: 600px; height: 100px'
+                .form-group
+                  %label
+                    = f.label :location, 'Location'
+                    = f.text_field :location, class: 'form-control', id:'input-city', placeholder:'Location', style: 'width: 400px'
+                .form-group.no-mg-b
+                  %label
+                    = f.label :time_frame, 'Time Frame'
+                    .row
+                      .col-sm-6.col-md-6.col-lg-4
+                        .input-group
+                          = f.text_field :time_frame, class: 'form-control', id: 'input-company'
+                          %span.input-group-btn
+                            %button.btn.btn-very-light{:type => "button"}
+                              %i.fa.fa-calendar-o.text-dark
+                %br/
+                .form-group
+                  %label
+                    = f.label :task_category_id, 'Task Category'
+                    %br
+                    = f.collection_select(:task_category_id, @task_categories, :id, :name, class:'form-control', id:'input-city', style: 'width: 900px')
+                %hr.hr-dashed
+                .form-group
+                  %label
+                    = f.label :minimum_budget, 'Minimum Budget:'
+                    .row
+                      .col-sm-6.col-md-6.col-lg-4
+                        .input-group
+                          %span.input-group-addon
+                            $
+                          = f.number_field  :minimum_budget, class:'form-control input-lg text-right', id:'input-money'
+                          %span.input-group-addon .00
+                .form-group
+                  %label
+                    = f.label :maximum_budget, 'Maximum Budget'
+                    .row
+                      .col-sm-6.col-md-6.col-lg-4
+                        .input-group
+                          %span.input-group-addon
+                            $
+                          = f.number_field  :maximum_budget, class:'form-control input-lg text-right', id:'input-money'
+                          %span.input-group-addon .00
+                .form-actions.mg-t-lg
+                  .row
+                    .text-center-xs
+                      .btn.btn-contrast.btn-lg
+                        %i.fa.fa-save
+                        = f.submit 'Submit', class:'btn btn-contrast'

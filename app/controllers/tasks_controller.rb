@@ -24,8 +24,10 @@ class TasksController < ApplicationController
       @tasks = Task.where(status: ['Open', 'Bidding'])
     elsif params[:type] == 'requester'
       @tasks = Task.where(user: current_user)
+      @task_categories = TaskCategory.all
       render action: '../requesters/tasks/index'
     end
+    @task_categories = TaskCategory.all
   end
 
   def edit
@@ -53,6 +55,7 @@ class TasksController < ApplicationController
     if @task.user == current_user
       @task.destroy
       assign_tasks_and_task_category
+      @task_categories = TaskCategory.all
       flash[:notice] = "Task Deleted!"
       render action: '../requesters/tasks/index'
     else
@@ -67,6 +70,7 @@ class TasksController < ApplicationController
       render action: '../requesters/tasks/show'
     else
       @task = Task.find(params[:id])
+      @task_cat = @task.task_category
       @bid = Bid.new
     end
   end

@@ -21,7 +21,7 @@ module Taskr
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.generators.system_tests = nil
-    
+
     config.generators do |generate|
     generate.helper false
     generate.assets false
@@ -29,6 +29,9 @@ module Taskr
     generate.helper_specs false
     generate.routing_specs false
     generate.controller_specs false
+
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join('/app/assets/fonts')
   end
 
   end
