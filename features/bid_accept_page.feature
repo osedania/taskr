@@ -26,8 +26,8 @@ Feature: Requester to accept bid
 
   Scenario: On the bid accept page, cancel the acceptance and go back to the task details page
     Given I click on "Cancel"
-    Then I should see "Task Details"
-    And I should see "Task: Bad mowing machine"
+    Then I should see "Task Bids"
+    And I should see "Bad mowing machine"
 
   Scenario: On bid accept page, do not check box and get message that bid cannot be accepted
     Given I click on "OK"
