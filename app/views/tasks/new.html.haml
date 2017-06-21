@@ -21,9 +21,6 @@
               %li.dropdown
                 = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
                   %span Home
-              %li.dropdown
-                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
-                  %span About us
               - if user_signed_in? && current_user.contractor?
                 %li.dropdown
                   = link_to  edit_user_registration_path, class: 'dropdown-toggle', "data-delay" => "50" do
@@ -59,9 +56,6 @@
                       = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
                     %li
                       = link_to 'Requester Log In', new_user_session_path
-                %li.dropdown
-                  = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
-                    %span FAQ
 
 #main-content
   .container

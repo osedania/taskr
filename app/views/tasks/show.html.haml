@@ -21,9 +21,6 @@
               %li.dropdown
                 = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
                   %span Home
-              %li.dropdown
-                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
-                  %span About us
               - if user_signed_in? && current_user.contractor?
                 %li.dropdown
                   = link_to  edit_user_registration_path, class: 'dropdown-toggle', "data-delay" => "50" do
@@ -59,9 +56,6 @@
                       = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
                     %li
                       = link_to 'Requester Log In', new_user_session_path
-                %li.dropdown
-                  = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
-                    %span FAQ
 
     #main{role: "main"}
       #main-content-header
@@ -88,9 +82,10 @@
                 .text-boxes
                   .row.text-box.text-box-title-above.text-box-big-image
                     .col-sm-12
-                      %h3.title
-                        = flash[:notice]
+                      = flash[:notice]
+                      %p.title
                         %a{href: "#"} #{@task.name}
+                      %hr.hr-half/
                       .toolbar
                         %a.btn.btn-link{href: "#"}
                           %i.fa.fa-arrows
@@ -132,7 +127,7 @@
                                   .media-body
                                     .content
                                       .toolbar
-                                        %h4.title Contractor: #{bid.user.first_name} #{bid.user.last_name}
+                                        %h4 Contractor: #{bid.user.first_name} #{bid.user.last_name}
                                         - if current_user.id == @task.user_id
                                           %a.btn.btn-link.link-contrast.btn-sm{ href:  task_bid_path(params[:id], bid)}
                                             %i.fa.fa-reply
@@ -167,5 +162,5 @@
                                         .col-sm-12
                                           .actions
                                             = f.submit "Make Offer", class:'btn btn-contrast'
-                    #scroll-to-top.fade
-                      %i.fa.fa-chevron-up
+                      #scroll-to-top.fade
+                        %i.fa.fa-chevron-up
