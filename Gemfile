@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   'https://github.com/#{repo_name}.git'
 end
 
+gem 'aws-sdk'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'haml-rails', '~> 0.9'
@@ -24,6 +25,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'guard-rails', require: false
