@@ -110,6 +110,16 @@
                       %a.btn.btn-link{href: "#"}
                         %i.fa.fa-cubes
                         %span Category: #{@task_cat.name}
+                      - if @task.status == 'Contracted'
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-dollar
+                          %span Winning Bid Amount: #{@winning_bid.quote}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-calendar
+                          %span Contracted On: #{@winning_bid.winning_bid_date}
+                        %a.btn.btn-link{href: "#"}
+                          %i.fa.fa-cubes
+                          %span Winning Contractor: #{@winning_contractor.email} - #{@winning_contractor.first_name} #{@winning_contractor.last_name}
                     %hr.hr-half/
                 .row.text-box
                   .col-sm-12
@@ -118,6 +128,7 @@
                 .row
                   %hr.hr-half/
                   .row
+                  - if @task.status != 'Contracted'
                     .col-sm-4
                       %a.btn.btn-contrast.btn-lg.fadeInDownBig.animated{href: edit_task_path(@task)}
                         Edit task
@@ -138,7 +149,7 @@
                                 .content
                                   .toolbar
                                     %h4.title Contractor: #{bid.user.first_name} #{bid.user.last_name}
-                                    - if current_user.id == @task.user_id
+                                    - if current_user.id == @task.user_id && @task.status == 'Bidding'
                                       %a.btn.btn-link.link-contrast.btn-sm{ href:  task_bid_path(params[:id], bid)}
                                         %i.fa.fa-reply
                                         %span Accept Bid
@@ -147,3 +158,23 @@
                                     %a{:href => "#"} #{bid.created_at}
     #scroll-to-top.fade
       %i.fa.fa-chevron-up
+-# >>>>>>> develop
+-# %h1 Task details
+-# %div
+-#   - if @task.status != 'Contracted'
+-#     = link_to "Edit task", edit_task_path(@task)
+-#     = link_to "Delete task", task_path(@task), method: :delete
+-#   %ul
+-#     %li= image_tag @task.task_image.url(:medium)
+-#     %li Task Name: #{@task.name}
+-#     %li Status: #{@task.status}
+-#     %li Description: #{@task.description}
+-#     %li Location: #{@task.location}
+-#     %li Time Frame: #{@task.time_frame}
+-#     %li Minimun budget: #{@task.minimum_budget}
+-#     %li Maximum budget: #{@task.maximum_budget}
+-#     %li Category: #{@task_cat.name}
+-#     - if @task.status == 'Contracted'
+-#       %li Winning Bid Amount: #{@winning_bid.quote}
+-#       %li Contracted On: #{@winning_bid.winning_bid_date}
+-#       %li Winning Contractor: #{@winning_contractor.email} - #{@winning_contractor.first_name} #{@winning_contractor.last_name}

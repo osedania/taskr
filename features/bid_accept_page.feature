@@ -41,3 +41,19 @@ Feature: Requester to accept bid
     Then I should see "Status: Contracted"
     Given I click on "Current Available Tasks"
     Then I should not see "Bad moving machine"
+
+    Scenario: Accept bid link not visible if task status is not Open or Bidding
+      Given I check "tos_accept_bid" checkbox
+      And I click on "OK"
+      And I click on "View My Tasks"
+      And I click on "Bad mowing machine"
+      Then I should not see "Accept Bid"
+
+    Scenario: Task in Contracted state should list winning bid amount and time
+      Given I check "tos_accept_bid" checkbox
+      And I click on "OK"
+      And I click on "View My Tasks"
+      And I click on "Bad mowing machine"
+      Then I should see "Winning Bid Amount: 500"
+      And I should see "Contracted On: 2017"
+      And I should see "Winning Contractor: con@a.com - Bob Jackson"

@@ -25,8 +25,8 @@ contractors = User.create(
     email: 'contractor2@c.com',
     password: '12345678',
     password_confirmation: '12345678',
-    first_name: 'John',
-    last_name: 'Doe',
+    first_name: 'Joanne',
+    last_name: 'Plummer',
     company_name: 'ABC Power',
     address: '123 Power St',
     city: 'Powertown',
@@ -44,15 +44,15 @@ requesters = User.create(
     email: 'requester1@r.com',
     password: '12345678',
     password_confirmation: '12345678',
-    first_name: 'Jane1',
-    last_name: 'Doanne1',
+    first_name: 'Jane',
+    last_name: 'Doanne',
     role: 'requester'
   }, {
     email: 'requester2@r.com',
     password: '12345678',
     password_confirmation: '12345678',
-    first_name: 'Jane2',
-    last_name: 'Doanne2',
+    first_name: 'Beth',
+    last_name: 'Smith',
     role: 'requester'
   }]
 )

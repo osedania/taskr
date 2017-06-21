@@ -74,7 +74,7 @@
                 %li
                   %a{ href: tasks_path({type: 'all'}) }
                     Back to all tasks
-  
+
         #main-content
           .container
             .row
@@ -105,8 +105,11 @@
                           %span Status: #{@task.status}
                         - if @task.status == "Contracted"
                           %a.btn.btn-link{href: "#"}
-                            %i.fa.fa-dollar
+                            %i.fa.fa-calendar
                             %span Contracted on: #{@bid.winning_bid_date}
+                          %a.btn.btn-link{href: "#"}
+                            %i.fa.fa-dollar
+                            %span Winning Bid Amount: #{@bid.quote}
                         %a.btn.btn-link{href: "#"}
                           %i.fa.fa-dollar
                           %span Minimum Budget: #{@task.minimum_budget}
@@ -115,7 +118,7 @@
                           %span Maximum Budget: #{@task.maximum_budget}
                         %a.btn.btn-link{href: "#"}
                           %i.fa.fa-cubes
-                          %span Contractor: #{@bid.user.first_name} #{@bid.user.last_name}
+                          %span Winning Contractor: #{@bid.user.email} - #{@bid.user.first_name} #{@bid.user.last_name}
                       %hr.hr-half/
                   .row.text-box
                     .col-sm-12
@@ -126,9 +129,9 @@
                         .col-sm-12
                           .row
                             #comments.col-sm-12
+                            - if @task.status == "Bidding"
                               %h3
                                 Agreement:
-                              - if @task.status == "Bidding"
                                 .media
                                   .content
                                     .toolbar
