@@ -21,9 +21,6 @@
               %li.dropdown
                 = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
                   %span Home
-              %li.dropdown
-                = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
-                  %span About us
               - if user_signed_in? && current_user.contractor?
                 %li.dropdown
                   = link_to  edit_user_registration_path, class: 'dropdown-toggle', "data-delay" => "50" do
@@ -59,9 +56,6 @@
                       = link_to 'Requester Sign Up', new_user_registration_path({ role: "requester" })
                     %li
                       = link_to 'Requester Log In', new_user_session_path
-                %li.dropdown
-                  = link_to  root_path, class: 'dropdown-toggle', "data-delay" => "50" do
-                    %span FAQ
 
     #main{role: "main"}
       #carousel-example-1.hero-carousel.carousel-blur.carousel-blur-arrows.carousel-blur-pagination.flexslider
@@ -142,18 +136,18 @@
               = image_tag ('electrician.jpg'), class:'img-responsive.center-block', height: "188", width: "340"
             .col-sm-6
               %h3.title
-                %a{href: "#"} Verified Contractors
+                %a{href: tasks_path( {type: 'all'}) } Verified Contractors
               %p We protect all customers using Takr by ensuring all contractors are verified and confirmed.
-              %a.btn.btn-contrast.btn-bordered.btn-sm{href: "#"} Read more
+              %a.btn.btn-contrast.btn-bordered.btn-sm{href: tasks_path( {type: 'all'}) } Read more
           %hr/
           .row.text-box
             .col-sm-6.col-sm-push-6
               = image_tag ('contractor.png'), class:'img-responsive.center-block', height: "188", width: "340"
             .col-sm-6.col-sm-pull-6
               %h3.title
-                %a{href: "#"} Easy to post a new task
+                %a{href: new_task_path } Easy to post a new task
               %p Posting a new task is easy and straight forward. No hassle..
-              %a.btn.btn-contrast.btn-bordered.btn-sm{href: "#"} Read more
+              %a.btn.btn-contrast.btn-bordered.btn-sm{href: tasks_path( {type: 'all'})} Read more
     .row
       .col-sm-12
         .page-header.page-header-with-icon
@@ -163,23 +157,23 @@
             %small See some of our popular categories.
         .row.portfolio-boxes
           .col-sm-3.col-xs-6.no-mb-t-xs.portfolio-box
-            %a.image-link{href: "#"}
+            %a.image-link{href: tasks_path( {type: 'all'}) }
               %i.fa.fa-search
               = image_tag ('jobcategories.png'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
             %h3.title Plumbing
           .col-sm-3.col-xs-6.no-mb-t-xs.portfolio-box
-            %a.image-link{href: "portfolio_detail.html"}
+            %a.image-link{href: tasks_path( {type: 'all'}) }
               %i.fa.fa-link
               = image_tag ('jobcategories2.jpg'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
             %h3.title Computers
           .col-sm-3.col-xs-6.portfolio-box
-            %a{href: "portfolio_detail.html"}
+            %a{href: tasks_path( {type: 'all'}) }
               .image-link
                 %i.fa.fa-search
                 = image_tag ('jobcategories3.jpg'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
               %h3.title Electrical
           .col-sm-3.col-xs-6.portfolio-box
-            %a{href: "portfolio_detail.html"}
+            %a{href: tasks_path( {type: 'all'}) }
               .image-link
                 %i.fa.fa-search
                 = image_tag ('jobcategories4.png'), class:'img-responsive.img-rounded.center-block', height: "200", width: "262"
