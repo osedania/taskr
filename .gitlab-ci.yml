@@ -55,8 +55,8 @@ production:
   only:
     - develop
   script:
-  - sudo chmod +x ./bin/setup_heroku
-  - sudo ./bin/setup_heroku
+  - chmod +x ./bin/setup_heroku
+  - ./bin/setup_heroku
   - dpl --provider=heroku --app=ca-taskr-dev --api-key=$HEROKU_PRODUCTION_API_KEY
   - heroku run rake db:migrate --exit-code --app ca-taskr-dev
   - heroku run rake statics:seed --exit-code --app ca-taskr-dev
