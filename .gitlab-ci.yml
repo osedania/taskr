@@ -11,6 +11,7 @@ variables:
   POSTGRES_DB: taskr_test
   POSTGRES_USER: runner
   POSTGRES_PASSWORD: ""
+  DB_HOST: postgres
 
 
 before_script:
