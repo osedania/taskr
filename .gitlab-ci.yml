@@ -1,0 +1,45 @@
+image: "ruby:2.3"
+
+services:
+  - postgres:latest
+
+cache:
+  paths:
+    - vendor/bundle
+
+variables:
+  POSTGRES_DB: taskr_test
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
+
+
+before_script:
+  - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake
+  - ruby -v
+  - which ruby
+  - gem install bundler --no-ri --no-rdoc
+  - bundle install --quiet
+  - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
+  - cp config/database.yml.gitlab config/database.yml
+  - RAILS_ENV=test bundle exec rake db:create db:schema:load
+  - bundle exec rake db:migrate --quiet
+  - bundle exec rake db:test:prepare --quiet
+
+rspec:
+  script:
+    - rspec 
+
+cucumber:
+  script:
+  - bundle exec cucumber
+
+production:
+  stage: deploy
+  retry: 2
+  only:
+    - master
+  script:
+  - ./bin/setup_heroku
+  - dpl --provider=heroku --app=ca-taskr-dev --api-key=$HEROKU_PRODUCTION_API_KEY
+  - heroku run rake db:migrate --exit-code --app ca-taskr-dev
+  - heroku run rake statics:seed --exit-code --app ca-taskr-dev

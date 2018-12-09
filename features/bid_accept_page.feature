@@ -17,13 +17,6 @@ Feature: Requester to accept bid
     And I click on "Bad mowing machine"
     And I click on "Accept Bid"
 
-  Scenario: On bid accept page, check box and accept bid
-    Given I check "tos_accept_bid" checkbox
-    And I click on "OK"
-    Then I should see "You now have an agreement for this task. Congratulations!"
-    And I should see "Status: Contracted"
-    And I should see "Contracted on: 2017"
-
   Scenario: On the bid accept page, cancel the acceptance and go back to the task details page
     Given I click on "Cancel"
     Then I should see "Task Bids"
@@ -49,11 +42,3 @@ Feature: Requester to accept bid
       And I click on "Bad mowing machine"
       Then I should not see "Accept Bid"
 
-    Scenario: Task in Contracted state should list winning bid amount and time
-      Given I check "tos_accept_bid" checkbox
-      And I click on "OK"
-      And I click on "View My Tasks"
-      And I click on "Bad mowing machine"
-      Then I should see "Winning Bid Amount: 500"
-      And I should see "Contracted On: 2017"
-      And I should see "Winning Contractor: con@a.com - Bob Jackson"
