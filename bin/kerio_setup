@@ -5,7 +5,7 @@ echo "$1"
 
 #autodetect
 sleep 1
-echo "yes"
+echo yes
 
 #fingerprint ..
 sleep 1
