@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 (
 
@@ -7,7 +8,7 @@ echo $1
 
 #autodetect
 sleep 2
-echo yes
+echo 'yes'
 
 #fingerprint ..
 sleep 1
