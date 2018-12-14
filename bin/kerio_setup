@@ -4,7 +4,7 @@ sleep 1
 echo "$1"
 
 #autodetect
-sleep 1
+sleep 2
 echo yes
 
 #fingerprint ..
