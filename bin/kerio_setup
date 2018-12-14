@@ -1,2 +1,18 @@
 
-dpkg -i kerio-control-vpnclient-9.2.7-2921-linux-amd64.deb << "$1" "$2" "$3"
+
+(dpkg -i kerio-control-vpnclient-9.2.7-2921-linux-amd64.deb <<EOF
+
+sleep 1
+
+$1
+
+sleep 2
+
+$2
+
+sleep 3
+
+$3
+
+EOF
+)
