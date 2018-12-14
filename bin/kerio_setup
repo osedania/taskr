@@ -1,7 +1,7 @@
 (
 #server
 sleep 1
-echo "central-vpn.devfactory.com"
+echo "$1"
 
 #autodetect
 sleep 1
@@ -13,10 +13,10 @@ echo ""
 
 #username
 sleep 1
-echo "odania"
+echo "$2"
 
 #password
 sleep 1
-echo "da771a@053gb3m0H"
+echo "$3"
 
 sleep 1) | dpkg -i kerio-control-vpnclient-9.2.7-2921-linux-amd64.deb
