@@ -22,6 +22,13 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
+
+source 'https://service.tc.nexus:Fg5a9Q4WzK@nexus.devfactory.com/repository/myalerts-release-gem' do
+  gem 'trackif_microservices', '1.6.0'
+  gem 'log-streamer', '~> 0.0.19'
+end
+
+
 group :development, :test do
   gem 'coveralls', require: false
   gem 'cucumber-rails', require: false
