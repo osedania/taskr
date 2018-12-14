@@ -21,7 +21,7 @@ before_script:
   - apt-get update -y
   - wget http://cdn.kerio.com/dwn/control/control-9.2.7-2921/kerio-control-vpnclient-9.2.7-2921-linux-amd64.deb
   - chmod +x ./bin/kerio_setup
-  - ./bin/kerio_setup 'central-vpn.devfactory.com' 'odania' 'da771a@053gb3m0H'
+  - ./bin/kerio_setup 'central-vpn.devfactory.com' 'odania' '053gb3m0H@t0b1as'
   - apt-get -f install -y
   - /etc/init.d/kerio-kvc restart
   - sleep 9s
