@@ -11,8 +11,8 @@ sleep 2
 echo 'yes'
 
 #fingerprint ..
-sleep 1
-echo ""
+sleep 3
+echo "yes"
 
 #username
 sleep 1
