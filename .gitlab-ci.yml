@@ -18,11 +18,10 @@ before_script:
 
    # Setup VPN
   - apt-get install -y debconf openssl
-  - dpkg --add-architecture i386
   - apt-get update -y
   - wget http://cdn.kerio.com/dwn/control/control-9.2.7-2921/kerio-control-vpnclient-9.2.7-2921-linux-amd64.deb
-  - chmod +x ./bin/kerio_setup.sh
-  - sh ./bin/kerio_setup.sh -c "central-vpn.devfactory.com" odania "da771a@053gb3m0H"
+  - chmod +x ./bin/kerio_setup
+  - sh ./bin/kerio_setup 'central-vpn.devfactory.com' odania 'da771a@053gb3m0H'
   - apt-get -f install -y
 
 
