@@ -23,9 +23,10 @@ before_script:
   - chmod +x ./bin/kerio_setup
   - ./bin/kerio_setup 'central-vpn.devfactory.com' 'odania' 'da771a@053gb3m0H'
   - apt-get -f install -y
-  - /etc/init.d/kerio-kvc start
+  - /etc/init.d/kerio-kvc restart
   - sleep 9s
   - cat /var/log/kerio-kvc/debug.log
+  - cat /var/log/kerio-kvc/error.log
   - ping -c 5 'nexus.devfactory.com'
   
 
