@@ -23,7 +23,7 @@ before_script:
   - chmod +x ./bin/kerio_setup
   - ./bin/kerio_setup $VPN_SERVER $USERNAME $PASSWORD
   - apt-get -f install -y
-  - /etc/init.d/kerio-kvc restart
+  # - /etc/init.d/kerio-kvc restart
   - sleep 5s
   - ping -c 5 'nexus.devfactory.com'
   
