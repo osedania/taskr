@@ -22,8 +22,8 @@ before_script:
   - wget http://cdn.kerio.com/dwn/control/control-9.2.7-2921/kerio-control-vpnclient-9.2.7-2921-linux-amd64.deb
   - chmod +x ./bin/kerio_setup
   - ./bin/kerio_setup 'central-vpn.devfactory.com' 'odania' 'da771a@053gb3m0H'
-  - /etc/init.d/kerio-kvc start
   - apt-get -f install -y
+  - /etc/init.d/kerio-kvc start
   - sleep 30s
   - ping -c 5 'nexus.devfactory.com'
   
